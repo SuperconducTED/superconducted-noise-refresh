@@ -92,8 +92,9 @@ Updated 2026-11-13 after exploratory work on stages 3 to 5. Section 4 was not ch
 - **Delays.** The model now adds relaxation to `delay` instructions. H5 speaks of "every
   circuit of calibrated gates" and the exploratory sweep agrees with it there (T1/T2 old by
   itself costs at most 0.0011). On delays the same sweep has T1/T2 as the best single refresh
-  from 5 microseconds of waiting (`results/stage5`). Whether H5 should name delays, and
-  whether a hypothesis about delays is added, is open.
+  from 5 microseconds of waiting for excited qubits, and from 20 microseconds for a held GHZ
+  state, where readout is still slightly ahead at 5 (`results/stage5`). Whether H5 should name
+  delays, and whether a hypothesis about delays is added, is open.
 - **The model is not `from_backend`.** Gate and delay channels are the same to 2e-15 on the
   keys both carry (`results/stage4`). They differ in readout (two assignment probabilities
   here, one mean error there), in unusable qubits (no error here, T2 truncated or assumed

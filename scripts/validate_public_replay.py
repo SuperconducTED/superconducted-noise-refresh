@@ -4,7 +4,7 @@ python scripts/validate_public_replay.py --parquet FILE --archive DIR --compact 
     --out results/x/public_replay.json
 
 Only the named backend is read from the table, and only events calibrated at or before the
-archive's newest file, so no held-out row is loaded. Each sampled archived document is set
+archive's newest file, so no held-out row is returned by the scan. Each sampled archived document is set
 against the table replayed at that document's own ``last_update_date``: field by field for the
 fields a noise model reads, and as the model built for one chain of qubits.
 

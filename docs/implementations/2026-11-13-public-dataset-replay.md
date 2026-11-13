@@ -1,7 +1,8 @@
 # 2026-11-13: replaying the public calibration dataset into snapshot documents
 
 Everything measured here is **exploratory**: `ibm_fez` rows only, calibrated at or before
-2026-11-13T11:07:46Z. No row of another device was loaded.
+2026-11-13T11:07:46Z. No row of another device was returned by the reader or looked at. The
+downloaded file does contain every device's rows.
 
 ## Problem / Motivation
 
@@ -25,7 +26,8 @@ where reading is allowed and where a replay can be checked against archived docu
 
 **Reading, and the held-out rule.** `read_events(parquet, backend, until, *, omitted=(),
 failure_ceilings)` builds one filter, `backend == ... and calibrated_time <= until`, and hands it
-to the parquet scan. Rows that fail it are never materialised. No other function in the module
+to the parquet scan. Rows that fail it are not returned; the parquet reader may decode a block
+that holds them in order to filter it, and whether it does was not examined. No other function in the module
 opens the file. The dataset revision used for the check is dated 2026-10-23, before the
 cutoff, so it holds no held-out `ibm_fez` row either. Returns an `Events` object (arrays sorted
 by key, then by `calibrated_time`); raises `ValueError` when nothing matches.
@@ -70,7 +72,7 @@ total variation between exact distributions of a 5-qubit GHZ circuit under the t
   held-out data; the revision makes the protection hold even against a mistake in the filter,
   for `ibm_fez`.
 - **Filter in the scan, not after loading.** Loading the table and filtering in memory would
-  put every device's rows in memory first.
+  hand every device's rows to this package's code first.
 - **No default for the flagged rows.** The check below shows that replaying them and leaving
   them out are both wrong in different ways. A default would hide a choice that changes
   results on other devices, where it cannot be checked.

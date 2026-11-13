@@ -1,7 +1,8 @@
 # Replay of the public event table against the archive, 2026-11-13
 
 Exploratory. `ibm_fez` only, and only events calibrated at or before the archive's newest
-file (2026-11-13T11:07:46Z); no row of any other device was loaded. This is preparation for
+file (2026-11-13T11:07:46Z); the reader returned no row of any other device, though the
+downloaded file contains them. This is preparation for
 roadmap stage 3. It says how far a replay can be trusted on the one device where it can be
 checked.
 

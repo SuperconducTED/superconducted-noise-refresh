@@ -7,9 +7,11 @@ of a backend was calibrated to a value at ``calibrated_time``. A snapshot docume
 first into the second, in the document format ``noise_refresh.archive`` reads, so the rest of
 the package runs on a replayed device exactly as it runs on the archived one.
 
-Held-out data. :func:`read_events` takes one backend and a latest time, and applies both while
-the file is scanned: rows of any other backend, and rows calibrated after that time, are never
-loaded. Nothing else in this module touches the file.
+Held-out data. :func:`read_events` takes one backend and a latest time, and gives both to the
+scan of the file as its filter: rows of any other backend, and rows calibrated after that
+time, are not returned to this package. The parquet reader may decode a block that holds them
+in order to filter it; no value from such a row reaches any code here. Nothing else in this
+module touches the file.
 
 Three properties of the table shape the replay. The first two are rules applied here; all
 three were found by the SuperconducTED team's comparison of the table with its own archive
@@ -140,7 +142,7 @@ def read_events(
 ) -> Events:
     """Load ``backend``'s events calibrated at or before ``until`` from the dataset's parquet file.
 
-    Both conditions are part of the scan, so no other row is read into memory. ``omitted`` are
+    Both conditions are the scan's filter, so no other row is returned. ``omitted`` are
     qubit-scope ``(property, qubit)`` keys to leave out (rule 2 of the module docstring).
     ``failure_ceilings`` says whether rows the table flags ``is_failure_ceiling`` (a gate error
     of 1) are replayed or left out; it has no default because neither choice reproduces the
