@@ -65,8 +65,11 @@ and `||.||` for the diamond norm of a difference of channels.
 **Telescoping.** Change the channels from A's to B's one place at a time. Changing one place
 from E to E' moves the output state by at most `||E - E'|| / 2` in trace distance, because
 everything after that place is a channel and channels do not increase trace distance; a
-measurement and the classical readout that follows are channels too. Adding up over the
-places,
+measurement and the classical readout that follows are channels too. This is the statement that
+errors add at most linearly in the diamond norm (Aharonov, Kitaev and Nisan, "Quantum circuits
+with mixed states", arXiv:quant-ph/9806029: Lemma 11 relates the trace distance to the largest
+total variation over measurements, Lemma 12 gives a physical superoperator diamond norm 1, and
+Lemma 13 adds the errors of composed superoperators). Adding up over the places,
 
     TV(P_A, P_B)  <=  sum over places of  d(place),
 
