@@ -1,0 +1,9 @@
+median total variation over 24 evaluation files; model with gate error
+
+case                               noise   floor  | stale by     1 h      6 h     24 h    168 h    720 h  | at 168 h, refreshed:       t1t2     readout  gate_error
+GHZ, 5 qubits                     0.0907  0.0187  |           0.0000   0.0161   0.0203   0.0214   0.0281  |                            0.0214      0.0023      0.0174   (24 evaluated, 0 skipped)
+GHZ, 5 qubits, second chain       0.1449  0.0226  |           0.0000   0.0316   0.0497   0.0433   0.0714  |                            0.0433      0.0018      0.0427   (24 evaluated, 0 skipped)
+QFT, 5 qubits                     0.2023  0.0200  |           0.0000   0.0181   0.0299   0.0349   0.0356  |                            0.0364      0.0249      0.0180   (24 evaluated, 0 skipped)
+idle, 5 qubits, 400 identities    0.6801  0.0326  |           0.0000   0.0232   0.0646   0.0695   0.0754  |                            0.0597      0.0677      0.0361   (24 evaluated, 0 skipped)
+
+wrote results/pilot/staleness.json

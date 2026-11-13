@@ -1,0 +1,14 @@
+snapshot 20261113T110746000000Z, GHZ on 5 qubits [0, 1, 2, 3, 4], 4096 shots, median of 5
+
+load_snapshot_ms                                   14.3
+build_device_without_gate_error_ms               3802.5
+run_device_without_gate_error_ms                  369.3
+build_device_with_gate_error_ms                 12494.0
+run_device_with_gate_error_ms                    4758.7
+build_circuit_without_gate_error_ms                65.9
+run_circuit_without_gate_error_ms                  24.4
+build_circuit_with_gate_error_ms                  263.3
+run_circuit_with_gate_error_ms                    125.7
+run_noiseless_ms                                    5.8
+
+wrote results/pilot/build_cost.json

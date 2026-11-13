@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "noise-refresh"
+version = "0.1.0"
+description = "What a stale calibration costs a quantum simulator's noise model, and which fields are worth refreshing."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Mert Efe Şensoy" }]
+dependencies = [
+    # The SuperconducTED noise engine at a pinned commit: the calibration types and the
+    # reference builder whose skip rules decide which qubits and gates receive an error.
+    "superconducted @ git+https://github.com/SuperconducTED/superconducted-noise-engine@667972c597892b54f4b8c5105229e345280e9da0",
+    "qiskit==2.4.1",
+    "qiskit-aer==0.17.2",
+    "numpy==2.4.4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=9,<10", "ruff>=0.15,<0.20"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/noise_refresh"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning:qiskit_ibm_runtime.*"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]

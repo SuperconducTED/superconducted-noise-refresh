@@ -1,0 +1,36 @@
+{
+ "provenance": {
+  "calibration_data_ref": "00c9a1c7229f2cf2488656575d2722c63ad8cdd5",
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v445-x86_64-with-glibc2.39",
+  "machine": "vm",
+  "versions": {
+   "qiskit": "2.4.1",
+   "qiskit-aer": "0.17.2",
+   "numpy": "2.4.4",
+   "superconducted": "0.1.0"
+  }
+ },
+ "snapshot": "20261113T110746000000Z",
+ "chain": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "shots": 4096,
+ "repeats": 5,
+ "milliseconds": {
+  "load_snapshot_ms": 14.340517000050568,
+  "build_device_without_gate_error_ms": 3802.5298190000285,
+  "run_device_without_gate_error_ms": 369.3272990000196,
+  "build_device_with_gate_error_ms": 12494.039304000013,
+  "run_device_with_gate_error_ms": 4758.712617000015,
+  "build_circuit_without_gate_error_ms": 65.93267200014452,
+  "run_circuit_without_gate_error_ms": 24.353384000050937,
+  "build_circuit_with_gate_error_ms": 263.2945049999762,
+  "run_circuit_with_gate_error_ms": 125.73253899995507,
+  "run_noiseless_ms": 5.784425000001647
+ }
+}

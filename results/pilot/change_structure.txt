@@ -1,0 +1,15 @@
+2926 files over 184.0 days, median gap 0.95 h
+rounds in which nothing changed: 0.626
+
+family         changed rounds  median share   >95%   <5%   share of components moving more than 1% / 5% / 10% / 25% / 50%
+t1t2             171 of 2925          0.994    171     0   0.989 / 0.945 / 0.844 / 0.537 / 0.225
+readout          743 of 2925          1.000    720     8   0.976 / 0.959 / 0.916 / 0.731 / 0.447
+gate_error:cz     170 of 2925          0.960    131     3   0.903 / 0.739 / 0.557 / 0.239 / 0.089
+gate_error:id     157 of 2925          0.974    145     3   0.926 / 0.812 / 0.682 / 0.361 / 0.112
+gate_error:rx     157 of 2925          0.974    145     3   0.926 / 0.812 / 0.682 / 0.361 / 0.112
+gate_error:rzz     155 of 2925          0.943     30    10   0.848 / 0.703 / 0.536 / 0.232 / 0.091
+gate_error:sx     157 of 2925          0.974    145     3   0.926 / 0.812 / 0.682 / 0.361 / 0.112
+gate_error:x     157 of 2925          0.974    145     3   0.926 / 0.812 / 0.682 / 0.361 / 0.112
+gate_length        2 of 2925          0.004      0     2   0.004 / 0.004 / 0.004 / 0.000 / 0.000
+
+wrote results/pilot/change_structure.json

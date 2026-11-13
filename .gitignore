@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# The calibration archive is exported locally from the engine repository and never committed.
+/archive/
+*.npz
+
+# Secrets
+.env
+*.token
+qiskit-ibm.json
