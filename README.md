@@ -11,6 +11,7 @@ calibration are responsible, so that a simulator user knows what to refresh and 
 **Status: pilot.** The numbers below come from one device, one machine and 24 evaluation
 times. They are exploratory and none of them is a result yet. [`PROTOCOL.md`](PROTOCOL.md)
 says what will be tested, on which held-out data, and what would count as failing.
+[`ROADMAP.md`](ROADMAP.md) is the plan from here to a journal article.
 
 ## What the pilot found
 
