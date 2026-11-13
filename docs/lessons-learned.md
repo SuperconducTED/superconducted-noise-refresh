@@ -29,6 +29,9 @@ repository until now.
 | `from_backend` adds relaxation on delays through a transpiler pass kept in a private list, and `NoiseModel.__eq__` does not look at it. Two models that differ only there compare equal. | `models.delay_times`; the delay tests in `tests/test_models.py` |
 | That pass indexes T1 and T2 by the circuit's qubit index, so its arrays must be as long as the device. | `models._delay_pass` |
 | On an IBM target, `from_backend` uses the single `readout_error` for both directions, because IBM's converter stores only that number for `measure`. `build_model` uses the two assignment probabilities. The difference moves outputs by a median of 0.013 to 0.025. | `test_the_two_models_read_different_readout_fields`; `results/stage4/README.md` |
+| `readout_error` is usually the mean of the two assignment probabilities and not always. The three fields carry their own timestamps: 105 of 3,744 readings checked differ, by up to 0.026 on a qubit used, and in all 105 the three were calibrated at least 35 minutes apart (median 13 hours, against 8 seconds in the rest). | `results/readout-convention/README.md`; the script prints the largest gap |
+| Which readout convention is used changes the size of the staleness distance on GHZ circuits (14% to 36% smaller with the single error, over 2 to 10 qubits) and not which family carries it (same best single refresh in 25 of 26 circuits). | `results/readout-convention/README.md` |
+| "What a refresh removes" has two natural statistics, one minus a ratio of medians and a median of per-file fractions. They differ by up to 19 points on one circuit, more than the two readout conventions differ on H3's circuits. A pass rule has to say which it means. | `scripts/readout_convention.py` prints both; `PROTOCOL.md` section 7 |
 | Aer's other constructor, `from_backend_properties`, raises on these snapshots, because no qubit reports a frequency. | `results/stage4/model_validation.txt` |
 | For unusable T1/T2, Aer truncates T2 to 2 T1 and assumes 2 T1 when it is missing; the engine gives the qubit no error at all. | `standard.compare_models`, reason `skipped_qubit`; `test_delays_are_treated_alike_except_on_a_skipped_qubit` |
 | Aer adds relaxation to `reset` and to the device's extra measurement instructions; the engine does not. | `standard.compare_models`, reason `non_unitary` |
@@ -78,7 +81,7 @@ repository until now.
 | The exported archive is 4.8 GB in 2,926 files. Keep it outside any folder synchronised to a cloud drive. | `README.md`, Reproduce |
 | Fetching only the pinned commit (`git fetch --depth 1 <url> <sha>`) into an empty repository exports the archive without downloading any later snapshot. | This file |
 | Timings need a quiet machine. Long runs started side by side slowed each other. | The table in `results/stage4/README.md` was timed with nothing else running |
-| The sweep makes one simulator call per circuit and model: 4,416 calls in 31 minutes, about 0.4 s each with the model builds included. Running all circuits of one model in a single call is the obvious saving. | Not tried |
+| A simulator call with a noise model has a fixed cost that dominates small circuits. The sweep made one call per circuit and model (4,416 calls, 31 minutes); one call per model for all its circuits ran 26 circuits in 9 minutes with identical results. | `outcome.exact_distributions`; `test_one_simulator_call_gives_the_distributions_of_one_call_each`; `run_sweep` still makes one call each |
 
 ## Literature and citations
 

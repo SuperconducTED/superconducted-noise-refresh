@@ -53,6 +53,56 @@ def apply_readout(probabilities: FloatArray, assignment: Sequence[tuple[float, f
     return tensor.reshape(-1)
 
 
+def mean_error_assignment(
+    snapshot: CalibrationSnapshot, model: NoiseModel, qubits: Sequence[int]
+) -> list[tuple[float, float] | None]:
+    """The readout ``NoiseModel.from_backend`` installs on an IBM target, for ``qubits``.
+
+    That constructor uses each qubit's single ``readout_error`` for both directions, where
+    ``build_model`` uses the two assignment probabilities. This returns ``(e, e)`` with ``e`` the
+    ``readout_error`` field of ``snapshot``, and None wherever ``model`` itself applies no readout
+    error (a qubit the engine skips), so that the only thing changed is the convention.
+
+    It is an analysis device: no model built by this package carries this readout. Raises
+    ``ValueError`` when a qubit with a readout error in ``model`` reports no ``readout_error``.
+    """
+    channels = readout_channels(model)
+    assignment: list[tuple[float, float] | None] = []
+    for q in qubits:
+        if q not in channels:
+            assignment.append(None)
+            continue
+        entries = snapshot.properties["qubits"][q]
+        error = next(
+            (e["value"] for e in entries if e.get("name") == "readout_error" and e.get("value") is not None),
+            None,
+        )
+        if error is None:
+            raise ValueError(f"qubit {q} reports no readout_error")
+        assignment.append((float(error), float(error)))
+    return assignment
+
+
+def exact_distributions(
+    cases: Sequence[tuple[QuantumCircuit, Sequence[int]]], model: NoiseModel | None
+) -> list[FloatArray]:
+    """:func:`exact_distribution` with ideal measurement for several circuits in one simulator call.
+
+    ``cases`` holds ``(placed circuit, measured qubits)`` pairs. Handing a noise model to the
+    simulator has a fixed cost per call that dominates small circuits, so one call for all the
+    circuits of a model is much cheaper than one call each. A test checks that the results are
+    the same.
+    """
+    circuits = []
+    for placed, qubits in cases:
+        circuit = placed.copy()
+        circuit.save_probabilities(list(qubits))
+        circuits.append(circuit)
+    simulator = AerSimulator(method="density_matrix", noise_model=model)
+    result = simulator.run(circuits).result()
+    return [np.asarray(result.data(i)["probabilities"], dtype=np.float64) for i in range(len(circuits))]
+
+
 def exact_distribution(
     placed: QuantumCircuit,
     qubits: Sequence[int],

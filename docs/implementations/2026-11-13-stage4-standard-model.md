@@ -98,8 +98,10 @@ confirms the mirror of this rule numerically against Aer itself.
 `[[1 - p10, p10], [p01, 1 - p01]]` (rows: prepared 0, prepared 1). `from_backend` on an IBM
 target uses the single `readout_error` `e` for both, `[[1 - e, e], [e, 1 - e]]`, because the
 target IBM's converter builds carries only that number for `measure`. On the archived device
-`e` is the mean of `p01` and `p10`, so the two matrices differ by `|p01 - p10| / 2` in each
-entry.
+`e` is usually the mean of `p01` and `p10`, and the two matrices then differ by
+`|p01 - p10| / 2` in each entry. It is not always the mean: the three fields carry their own
+timestamps and are not always updated together (105 of 3,744 readings checked later; see
+`results/readout-convention/README.md`).
 
 **Distances.** Total variation between exact output distributions, as in the protocol. The
 script reports three per circuit: with ideal measurement (gate and delay channels only), with

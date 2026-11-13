@@ -1,0 +1,42 @@
+24 evaluation files, calibration 168 h old; 0 files skipped; A = assignment probabilities, M = mean error
+
+named by H3 and H4: medians over the evaluation files
+case                                       stale   left, readout   readout removes  same, per file  gate error removes  best single refresh
+                                       A       M       A       M        A        M       A       M         A         M  A / M
+GHZ, 2 qubits                     0.0103  0.0086  0.0008  0.0008    92.1%    90.4%   92.1%   91.1%      3.5%      1.6%  readout / readout
+GHZ, 3 qubits                     0.0128  0.0109  0.0014  0.0014    89.4%    87.6%   90.1%   88.0%      2.8%     -0.2%  readout / readout
+GHZ, 4 qubits                     0.0180  0.0135  0.0019  0.0019    89.4%    85.7%   87.4%   85.2%      3.9%     -0.2%  readout / readout
+GHZ, 5 qubits                     0.0214  0.0162  0.0023  0.0024    89.1%    85.4%   87.2%   84.8%     17.5%     12.7%  readout / readout
+GHZ, 5 qubits, second chain       0.0433  0.0278  0.0018  0.0018    95.9%    93.5%   95.6%   93.3%      1.4%      2.7%  readout / readout
+QFT, 5 qubits                     0.0349  0.0333  0.0249  0.0245    28.5%    26.3%   28.6%   19.2%     48.4%     58.4%  gate_error / gate_error
+
+rest of the sweep: medians over the evaluation files
+case                                       stale   left, readout   readout removes  same, per file  gate error removes  best single refresh
+                                       A       M       A       M        A        M       A       M         A         M  A / M
+idle, 5 qubits, 400 identities    0.0695  0.0718  0.0677  0.0677     2.6%     5.6%    2.6%    2.3%     48.1%     51.2%  gate_error / gate_error
+mirror, 5 qubits, 1 layers        0.0194  0.0184  0.0049  0.0049    74.6%    73.3%   72.4%   72.7%     11.7%     25.1%  readout / readout
+mirror, 5 qubits, 2 layers        0.0232  0.0216  0.0066  0.0067    71.4%    69.0%   60.5%   57.3%     24.5%     29.0%  readout / readout
+mirror, 5 qubits, 4 layers        0.0299  0.0250  0.0131  0.0132    56.3%    47.0%   42.3%   36.2%     42.5%     36.5%  readout / readout
+mirror, 5 qubits, 8 layers        0.0371  0.0331  0.0237  0.0240    36.1%    27.4%   29.6%   22.8%     55.7%     54.6%  gate_error / gate_error
+mirror, 5 qubits, 16 layers       0.0450  0.0503  0.0393  0.0398    12.7%    20.8%   18.0%   14.4%     65.6%     79.6%  gate_error / gate_error
+mirror, 5 qubits, 32 layers       0.0593  0.0613  0.0487  0.0489    18.0%    20.2%    9.5%    5.0%     77.2%     88.4%  gate_error / gate_error
+GHZ, 6 qubits                     0.0311  0.0242  0.0027  0.0027    91.4%    89.0%   91.2%   89.8%      2.1%      2.5%  readout / readout
+GHZ, 8 qubits                     0.0356  0.0305  0.0058  0.0058    83.7%    81.0%   83.8%   81.7%      0.7%      8.8%  readout / readout
+GHZ, 10 qubits                    0.0383  0.0325  0.0074  0.0074    80.7%    77.2%   84.6%   82.5%      0.4%      2.4%  readout / readout
+idle, 5 qubits, 1 us delay        0.0189  0.0184  0.0058  0.0059    69.0%    68.0%   72.2%   70.6%     -0.4%      1.0%  readout / readout
+idle, 5 qubits, 5 us delay        0.0368  0.0319  0.0264  0.0265    28.3%    16.9%   15.9%   16.3%     -0.7%      0.2%  t1t2 / t1t2
+idle, 5 qubits, 20 us delay       0.0855  0.0898  0.0828  0.0826     3.2%     8.0%    2.4%    2.0%      0.0%     -0.1%  t1t2 / t1t2
+idle, 5 qubits, 50 us delay       0.1569  0.1544  0.1524  0.1524     2.9%     1.3%    1.0%    0.1%     -0.0%     -0.0%  t1t2 / t1t2
+idle, 5 qubits, 100 us delay      0.2108  0.2083  0.2080  0.2080     1.3%     0.2%    0.5%    0.1%      0.0%      0.0%  t1t2 / t1t2
+GHZ hold, 5 qubits, 1 us          0.0282  0.0249  0.0082  0.0082    70.8%    67.2%   57.0%   47.8%     16.2%     21.3%  readout / readout
+GHZ hold, 5 qubits, 5 us          0.0324  0.0299  0.0187  0.0193    42.2%    35.3%   34.8%   30.3%      6.1%      7.3%  readout / t1t2
+GHZ hold, 5 qubits, 20 us         0.0515  0.0491  0.0448  0.0446    13.0%     9.1%    6.3%    7.4%     -4.0%     -2.8%  t1t2 / t1t2
+GHZ hold, 5 qubits, 50 us         0.0626  0.0596  0.0581  0.0585     7.3%     1.9%    3.7%    0.5%      1.1%      1.5%  t1t2 / t1t2
+GHZ hold, 5 qubits, 100 us        0.0706  0.0688  0.0679  0.0677     3.9%     1.6%    6.7%    0.9%      1.9%      0.3%  t1t2 / t1t2
+
+best single refresh differs between the conventions in 1 of 26 circuits: ['GHZ hold, 5 qubits, 5 us']
+largest |readout_error - mean of the two assignment probabilities| on the qubits used: 2.56e-02
+evaluation files with an assignment probability above 0.5 on a qubit used, now or 7 days before: 1 ['20261022T112855000000Z']
+assignment arm against results\stage5\sweep.json: 23 circuits, largest difference 0.00e+00
+
+wrote results\readout-convention\readout_convention.json

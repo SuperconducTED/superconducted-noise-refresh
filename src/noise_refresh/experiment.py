@@ -16,7 +16,15 @@ from . import FAMILIES
 from .archive import Compact, load_snapshot
 from .circuits import coupling_edges, place
 from .models import build_model, refresh, sample_time
-from .outcome import apply_readout, exact_distribution, model_assignment, sampling_floor, total_variation
+from .outcome import (
+    apply_readout,
+    exact_distribution,
+    exact_distributions,
+    mean_error_assignment,
+    model_assignment,
+    sampling_floor,
+    total_variation,
+)
 from .sensitivity import output_shift_bound, profile
 
 
@@ -220,3 +228,122 @@ def run_sweep(
                     for part in ("gates", "delays", "readout"):
                         record["bound_parts"][part].append(getattr(bound, part))
     return {"records": records, "skipped": skipped}
+
+
+CONVENTIONS: tuple[str, ...] = ("assignment", "mean_error")
+"""Readout conventions compared by :func:`run_readout_conventions`.
+
+``assignment``  the two assignment probabilities, as ``build_model`` installs them
+``mean_error``  the single ``readout_error`` for both directions, as Aer's ``from_backend`` does
+"""
+
+
+def _readout_state(snapshot: CalibrationSnapshot, qubits: Sequence[int]) -> tuple[float, float]:
+    """Over ``qubits``: the largest gap between ``readout_error`` and the mean of the two
+    assignment probabilities, and the largest assignment probability."""
+    gap, largest = 0.0, 0.0
+    for q in qubits:
+        values = {
+            e["name"]: float(e["value"])
+            for e in snapshot.properties["qubits"][q]
+            if e.get("value") is not None
+        }
+        pair = (values.get("prob_meas0_prep1"), values.get("prob_meas1_prep0"))
+        if None in pair:
+            continue
+        largest = max(largest, *pair)  # type: ignore[arg-type]
+        if "readout_error" in values:
+            gap = max(gap, abs(values["readout_error"] - (pair[0] + pair[1]) / 2.0))  # type: ignore[operator]
+    return gap, largest
+
+
+def run_readout_conventions(
+    paths: Sequence[Path],
+    compact: Compact,
+    cases: Sequence[Case],
+    indices: Sequence[int],
+    lag_hours: float,
+) -> dict[str, Any]:
+    """The distances of :func:`run_sweep`, measured under two readout conventions.
+
+    Only the readout applied to the output changes between the two arms. The gate and delay
+    model, the skip rule, the evaluation files and the lag are shared, and each circuit is
+    simulated once per model with ideal measurement; the two readouts are then applied
+    analytically to the same distribution. A distance is always taken between two outputs of
+    the same convention, never across conventions.
+
+    The ``mean_error`` arm is an analysis device (``outcome.mean_error_assignment``): no model
+    built by this package carries that readout.
+
+    Returns ``{"records": [one per case], "skipped": [...], "diagnostics": [one per file]}``.
+    A record's ``measured[convention][kind]`` is aligned with ``evaluated``; kinds are those of
+    :func:`run_sweep`. Each diagnostic gives, over the qubits used and the two snapshots of that
+    evaluation, the largest gap between ``readout_error`` and the mean of the two assignment
+    probabilities, and the largest assignment probability.
+    """
+    if [p.stem for p in paths] != list(compact.stamps):
+        raise ValueError("paths and compact do not describe the same files")
+    snapshot = lru_cache(maxsize=64)(lambda i: load_snapshot(paths[i]))
+    reference = snapshot(len(paths) - 1)
+    edges = coupling_edges(reference)
+    device_qubits = len(reference.properties["qubits"])
+    scope = sorted({q for case in cases for q in case.chain})
+    kinds = ["stale", *(f"refreshed:{f}" for f in FAMILIES), *(f"alone:{f}" for f in FAMILIES)]
+
+    batch, records = [], []
+    for case in cases:
+        placed = place(
+            case.logical, case.chain, edges, device_qubits, optimization_level=case.optimization_level
+        )
+        batch.append((placed, case.chain))
+        records.append(
+            {
+                "case": case.label,
+                "chain": list(case.chain),
+                "operations": {k: int(v) for k, v in placed.count_ops().items()},
+                "evaluated": [],
+                "measured": {c: {kind: [] for kind in kinds} for c in CONVENTIONS},
+            }
+        )
+
+    skipped, diagnostics = [], []
+    for index in indices:
+        try:
+            current = snapshot(index)
+            old_index = index_at_lag(compact, index, lag_hours)
+            old = snapshot(old_index)
+            variants = {"current": current, "stale": old}
+            variants.update({f"refreshed:{f}": refresh(old, current, [f]) for f in FAMILIES})
+            variants.update({f"alone:{f}": refresh(current, old, [f]) for f in FAMILIES})
+            outputs: dict[str, list[dict[str, Any]]] = {}
+            for name, variant in variants.items():
+                model = build_model(variant, scope)
+                bases = exact_distributions(batch, model)
+                outputs[name] = [
+                    {
+                        "assignment": apply_readout(base, model_assignment(model, case.chain)),
+                        "mean_error": apply_readout(base, mean_error_assignment(variant, model, case.chain)),
+                    }
+                    for base, case in zip(bases, cases, strict=True)
+                ]
+        except ValueError as error:
+            skipped.append({"stamp": compact.stamps[index], "reason": str(error)})
+            continue
+        for i, record in enumerate(records):
+            record["evaluated"].append(compact.stamps[index])
+            for convention in CONVENTIONS:
+                fresh = outputs["current"][i][convention]
+                for kind in kinds:
+                    record["measured"][convention][kind].append(
+                        total_variation(fresh, outputs[kind][i][convention])
+                    )
+        gaps = [_readout_state(s, scope) for s in (current, old)]
+        diagnostics.append(
+            {
+                "stamp": compact.stamps[index],
+                "old_stamp": compact.stamps[old_index],
+                "field_gap": max(g for g, _ in gaps),
+                "largest_assignment_probability": max(p for _, p in gaps),
+            }
+        )
+    return {"records": records, "skipped": skipped, "diagnostics": diagnostics}

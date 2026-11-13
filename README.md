@@ -69,8 +69,13 @@ On 24 snapshots the gate channels agree to 2e-15, the delay relaxation agrees, a
 outputs are identical when measurement is ideal. The models differ in three explained ways:
 
 - Readout. This study's model uses each qubit's two assignment probabilities; `from_backend`
-  uses the single mean readout error for both. That alone moves the output by a median of 0.013
+  uses the single `readout_error` for both. That alone moves the output by a median of 0.013
   to 0.025 in total variation, the size of a week of staleness, and by 0.45 on one snapshot.
+  Run under both ([`results/readout-convention/`](results/readout-convention/)), the attribution
+  keeps its direction: a readout refresh removes 85% to 96% of the 7-day distance on GHZ up to
+  5 qubits either way, and the best single refresh is the same in 25 of 26 circuits. What changes
+  is the size of the distance, which is 14% to 36% smaller on the eight GHZ circuits under the
+  single error.
 - Unusable qubits. The engine's rule gives a qubit with missing T1/T2, or T2 > 2 T1, no error at
   all; Aer truncates or assumes T2. One to three of 156 qubits are affected in each snapshot.
 - Gate sets. `rx` and `rzz` only here; relaxation on `reset` and `measure_2` only in Aer.
@@ -152,7 +157,7 @@ hour each. `results/pilot` was produced by the scripts as they stood at commit `
 | `src/noise_refresh/public.py` | Replays the public event table into snapshot documents |
 | `scripts/` | One command per measurement; each writes JSON with its provenance |
 | `results/pilot/` | The pilot's output |
-| `results/stage4/`, `results/stage5/`, `results/stage3-prep/` | Exploratory output since the pilot |
+| `results/stage4/`, `results/stage5/`, `results/stage3-prep/`, `results/readout-convention/` | Exploratory output since the pilot |
 | `docs/implementations/` | One document per change: why, how, the mathematics, how it was verified |
 | `docs/lessons-learned.md` | Pitfalls found so far and what now guards each one; what is still not verified |
 

@@ -97,9 +97,15 @@ Updated 2026-11-13 after exploratory work on stages 3 to 5. Section 4 was not ch
   delays, and whether a hypothesis about delays is added, is open.
 - **The model is not `from_backend`.** Gate and delay channels are the same to 2e-15 on the
   keys both carry (`results/stage4`). They differ in readout (two assignment probabilities
-  here, one mean error there), in unusable qubits (no error here, T2 truncated or assumed
-  there) and in gate sets. The readout difference moves outputs by a median of 0.013 to 0.025,
-  as much as the 7-day staleness the pilot measured, so H3 depends on which is used.
+  here, the single `readout_error` there), in unusable qubits (no error here, T2 truncated or
+  assumed there) and in gate sets. The readout difference moves outputs by a median of 0.013 to
+  0.025, as much as the 7-day staleness the pilot measured. Run under both conventions
+  (`results/readout-convention`), a readout refresh removes 87% to 96% of the 7-day distance on
+  GHZ up to 5 qubits with assignment probabilities and 85% to 94% with the single error. Gate
+  error leads on QFT either way and by either statistic, in 16 or 17 of the 24 files. The
+  distance itself is 14% to 36% smaller with the single error on GHZ circuits of 2 to 10 qubits.
+  H3 does not say whether "removes" is a ratio of medians or a median of per-file fractions; the
+  ranges above cover both.
 - **The skip rule can switch a qubit's whole error off.** A qubit whose T2 exceeds 2 T1 in one
   snapshot has no gate, delay or readout error in that snapshot's model. This happens to a
   chain qubit in 2 of 2,926 files for the first chain; 27 of the 156 qubits are affected at
