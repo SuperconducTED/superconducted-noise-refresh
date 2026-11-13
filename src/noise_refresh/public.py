@@ -1,6 +1,6 @@
 """Replay the public ``qiskit-calibration-drift`` dataset into snapshot documents.
 
-The dataset (Charles C. Norton, Hugging Face ``phanerozoic/qiskit-calibration-drift``,
+The dataset (Charles Norton, Hugging Face ``phanerozoic/qiskit-calibration-drift``,
 CC-BY-4.0) is one table of calibration *events*: a row says that a property of a qubit or gate
 of a backend was calibrated to a value at ``calibrated_time``. A snapshot document is a
 *state*: for every property, the latest event at or before one moment. This module turns the

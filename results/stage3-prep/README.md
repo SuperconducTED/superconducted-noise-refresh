@@ -8,7 +8,7 @@ checked.
 
 | | |
 | --- | --- |
-| Public table | Hugging Face `phanerozoic/qiskit-calibration-drift` (Charles C. Norton, CC-BY-4.0), revision `0c298c2ba07f9b230a81a0e5fa8d993dcd2cf37d` of 2026-10-23, `data/train-00000-of-00001.parquet`, 98,141,114 bytes, SHA-256 `dbb53131a6c2c96732e5be070c6ad1621b7d90cb052298975d78d6bbd86fcc73` |
+| Public table | Hugging Face `phanerozoic/qiskit-calibration-drift` (Charles Norton, CC-BY-4.0), revision `0c298c2ba07f9b230a81a0e5fa8d993dcd2cf37d` of 2026-10-23, `data/train-00000-of-00001.parquet`, 98,141,114 bytes, SHA-256 `dbb53131a6c2c96732e5be070c6ad1621b7d90cb052298975d78d6bbd86fcc73` |
 | Archive | `calibration-data` @ `00c9a1c7229f2cf2488656575d2722c63ad8cdd5`, `ibm_fez` |
 | Machine | Windows 11, Python 3.12.10, qiskit 2.4.1, qiskit-aer 0.17.2, pyarrow 26.0.1 |
 | Command | `python scripts/validate_public_replay.py --parquet FILE --archive DIR --compact DIR/ibm_fez.npz --out results/stage3-prep/public_replay.json` |

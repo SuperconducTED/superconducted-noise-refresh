@@ -170,7 +170,7 @@ Dr. Fırat Akba.
 It stands on work by the SuperconducTED team: the calibration poller and archive
 (Baha Jarad), the thermal-relaxation reference builder (Bengisu), and the Aer integration
 and benchmark harness (Burak Öztekin). The plan to extend the study to other devices uses the
-public `qiskit-calibration-drift` dataset by Charles C. Norton (CC-BY-4.0).
+public `qiskit-calibration-drift` dataset by Charles Norton (CC-BY-4.0).
 
 IBM, IBM Quantum, Qiskit and Qiskit Aer are trademarks of IBM. This is an independent student
 project, not affiliated with or endorsed by IBM.
