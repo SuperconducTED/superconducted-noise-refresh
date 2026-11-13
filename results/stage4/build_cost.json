@@ -1,0 +1,76 @@
+{
+ "provenance": {
+  "calibration_data_ref": "00c9a1c7229f2cf2488656575d2722c63ad8cdd5",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "cpus": 20,
+  "versions": {
+   "qiskit": "2.4.1",
+   "qiskit-aer": "0.17.2",
+   "qiskit-ibm-runtime": "0.49.1",
+   "numpy": "2.4.4",
+   "superconducted": "0.1.0"
+  }
+ },
+ "snapshot": "20261113T110746000000Z",
+ "chain": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "shots": 4096,
+ "repeats": 5,
+ "milliseconds": {
+  "load_snapshot_ms": 12.101300002541393,
+  "replay_device_ms": 173.5532000020612,
+  "build_device_from_backend_ms": 3427.481499995338,
+  "run_device_from_backend_ms": 1432.2732999862637,
+  "build_device_without_gate_error_ms": 1142.4537999846507,
+  "run_device_without_gate_error_ms": 230.31139999511652,
+  "build_device_with_gate_error_ms": 6486.540800018702,
+  "run_device_with_gate_error_ms": 2502.0491000032052,
+  "replay_circuit_ms": 24.98119999654591,
+  "build_circuit_from_backend_ms": 75.9253999858629,
+  "run_circuit_from_backend_ms": 89.92439997382462,
+  "build_circuit_without_gate_error_ms": 31.37899999273941,
+  "run_circuit_without_gate_error_ms": 32.68569998908788,
+  "build_circuit_with_gate_error_ms": 163.22069999296218,
+  "run_circuit_with_gate_error_ms": 137.59830000344664,
+  "run_noiseless_ms": 29.905800009146333
+ },
+ "channels": {
+  "device_from_backend": {
+   "gate_channels": 1756,
+   "two_qubit_channels": 352,
+   "readout_errors": 156
+  },
+  "device_without_gate_error": {
+   "gate_channels": 1920,
+   "two_qubit_channels": 688,
+   "readout_errors": 154
+  },
+  "device_with_gate_error": {
+   "gate_channels": 1920,
+   "two_qubit_channels": 688,
+   "readout_errors": 154
+  },
+  "circuit_from_backend": {
+   "gate_channels": 53,
+   "two_qubit_channels": 8,
+   "readout_errors": 156
+  },
+  "circuit_without_gate_error": {
+   "gate_channels": 56,
+   "two_qubit_channels": 16,
+   "readout_errors": 5
+  },
+  "circuit_with_gate_error": {
+   "gate_channels": 56,
+   "two_qubit_channels": 16,
+   "readout_errors": 5
+  }
+ }
+}

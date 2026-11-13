@@ -1,0 +1,1297 @@
+{
+ "provenance": {
+  "calibration_data_ref": "00c9a1c7229f2cf2488656575d2722c63ad8cdd5",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "cpus": 20,
+  "versions": {
+   "qiskit": "2.4.1",
+   "qiskit-aer": "0.17.2",
+   "qiskit-ibm-runtime": "0.49.1",
+   "numpy": "2.4.4",
+   "superconducted": "0.1.0"
+  }
+ },
+ "backend": "ibm_fez",
+ "chains": {
+  "GHZ, 5 qubits": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "GHZ, 5 qubits, second chain": [
+   60,
+   61,
+   62,
+   63,
+   56
+  ],
+  "QFT, 5 qubits": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "idle, 5 qubits, 400 identities": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "idle, 5 qubits, 20 us delay": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ "device": [
+  {
+   "stamp": "20260513T121322000000Z",
+   "shared": 813,
+   "max_gate_difference": 0.0,
+   "only_standard": {
+    "skipped_qubit": 7,
+    "non_unitary": 155
+   },
+   "only_standard_non_unitary_gates": [
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 503
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72
+   ],
+   "readout_shared": 155,
+   "max_readout_difference": 0.1229248046875,
+   "delay_qubits": 155,
+   "max_delay_time_difference": 2.1158437516309093e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20260526T183613000000Z",
+   "shared": 813,
+   "max_gate_difference": 0.0,
+   "only_standard": {
+    "skipped_qubit": 8,
+    "non_unitary": 155
+   },
+   "only_standard_non_unitary_gates": [
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 658
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz",
+    "xslow"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72
+   ],
+   "readout_shared": 155,
+   "max_readout_difference": 0.154541015625,
+   "delay_qubits": 155,
+   "max_delay_time_difference": 2.1121224166713025e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20260612T134741000000Z",
+   "shared": 813,
+   "max_gate_difference": 0.0,
+   "only_standard": {
+    "skipped_qubit": 8,
+    "non_unitary": 155
+   },
+   "only_standard_non_unitary_gates": [
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 503
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72
+   ],
+   "readout_shared": 155,
+   "max_readout_difference": 0.35791015625,
+   "delay_qubits": 155,
+   "max_delay_time_difference": 2.1135514276495945e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20260703T205314000000Z",
+   "shared": 813,
+   "max_gate_difference": 0.0,
+   "only_standard": {
+    "skipped_qubit": 8,
+    "non_unitary": 155
+   },
+   "only_standard_non_unitary_gates": [
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 503
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72
+   ],
+   "readout_shared": 155,
+   "max_readout_difference": 0.297119140625,
+   "delay_qubits": 155,
+   "max_delay_time_difference": 2.1125016507375167e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20260718T194331000000Z",
+   "shared": 813,
+   "max_gate_difference": 0.0,
+   "only_standard": {
+    "skipped_qubit": 8,
+    "non_unitary": 155
+   },
+   "only_standard_non_unitary_gates": [
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 503
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72
+   ],
+   "readout_shared": 155,
+   "max_readout_difference": 0.114013671875,
+   "delay_qubits": 155,
+   "max_delay_time_difference": 2.0598843092617901e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20260801T001902000000Z",
+   "shared": 813,
+   "max_gate_difference": 1.1102230246251565e-16,
+   "only_standard": {
+    "skipped_qubit": 8,
+    "non_unitary": 155
+   },
+   "only_standard_non_unitary_gates": [
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 503
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72
+   ],
+   "readout_shared": 155,
+   "max_readout_difference": 0.17236328125,
+   "delay_qubits": 155,
+   "max_delay_time_difference": 2.1006155699901337e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20260817T152636000000Z",
+   "shared": 813,
+   "max_gate_difference": 0.0,
+   "only_standard": {
+    "skipped_qubit": 9,
+    "non_unitary": 310
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 503
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72
+   ],
+   "readout_shared": 155,
+   "max_readout_difference": 0.073486328125,
+   "delay_qubits": 155,
+   "max_delay_time_difference": 2.0160297453781965e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20260824T141046000000Z",
+   "shared": 813,
+   "max_gate_difference": 0.0,
+   "only_standard": {
+    "skipped_qubit": 9,
+    "non_unitary": 310
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 503
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72
+   ],
+   "readout_shared": 155,
+   "max_readout_difference": 0.055419921875,
+   "delay_qubits": 155,
+   "max_delay_time_difference": 2.102506405147972e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20260910T122032000000Z",
+   "shared": 1278,
+   "max_gate_difference": 3.3306690738754696e-16,
+   "only_standard": {
+    "skipped_qubit": 12,
+    "non_unitary": 310
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 503
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72
+   ],
+   "readout_shared": 155,
+   "max_readout_difference": 0.054443359375,
+   "delay_qubits": 155,
+   "max_delay_time_difference": 2.116447627899636e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20260914T092839000000Z",
+   "shared": 1422,
+   "max_gate_difference": 2.220446049250313e-16,
+   "only_standard": {
+    "skipped_qubit": 26,
+    "non_unitary": 308
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 498
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72,
+    142
+   ],
+   "readout_shared": 154,
+   "max_readout_difference": 0.07275390625,
+   "delay_qubits": 154,
+   "max_delay_time_difference": 2.098791480278377e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20260918T110536000000Z",
+   "shared": 1420,
+   "max_gate_difference": 2.220446049250313e-16,
+   "only_standard": {
+    "skipped_qubit": 28,
+    "non_unitary": 308
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 496
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    49,
+    72
+   ],
+   "readout_shared": 154,
+   "max_readout_difference": 0.142333984375,
+   "delay_qubits": 154,
+   "max_delay_time_difference": 2.080196954576928e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20260923T193500000000Z",
+   "shared": 1433,
+   "max_gate_difference": 1.9984014443252818e-15,
+   "only_standard": {
+    "skipped_qubit": 13,
+    "non_unitary": 310
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 503
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72
+   ],
+   "readout_shared": 155,
+   "max_readout_difference": 0.1217041015625,
+   "delay_qubits": 155,
+   "max_delay_time_difference": 2.1067272332644663e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20260928T001623000000Z",
+   "shared": 1433,
+   "max_gate_difference": 1.9984014443252818e-15,
+   "only_standard": {
+    "skipped_qubit": 13,
+    "non_unitary": 310
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 503
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72
+   ],
+   "readout_shared": 155,
+   "max_readout_difference": 0.071533203125,
+   "delay_qubits": 155,
+   "max_delay_time_difference": 2.0494151464577829e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20261002T012506000000Z",
+   "shared": 1433,
+   "max_gate_difference": 8.881784197001252e-16,
+   "only_standard": {
+    "skipped_qubit": 13,
+    "non_unitary": 310
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 503
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72
+   ],
+   "readout_shared": 155,
+   "max_readout_difference": 0.052734375,
+   "delay_qubits": 155,
+   "max_delay_time_difference": 2.105629526179605e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20261006T102042000000Z",
+   "shared": 1433,
+   "max_gate_difference": 1.6653345369377348e-15,
+   "only_standard": {
+    "skipped_qubit": 13,
+    "non_unitary": 310
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 503
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72
+   ],
+   "readout_shared": 155,
+   "max_readout_difference": 0.09765625,
+   "delay_qubits": 155,
+   "max_delay_time_difference": 2.082662352145645e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20261010T222054000000Z",
+   "shared": 1433,
+   "max_gate_difference": 9.992007221626409e-16,
+   "only_standard": {
+    "skipped_qubit": 13,
+    "non_unitary": 310
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 503
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72
+   ],
+   "readout_shared": 155,
+   "max_readout_difference": 0.0439453125,
+   "delay_qubits": 155,
+   "max_delay_time_difference": 2.104672274478373e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20261015T143904000000Z",
+   "shared": 1411,
+   "max_gate_difference": 2.220446049250313e-16,
+   "only_standard": {
+    "skipped_qubit": 39,
+    "non_unitary": 306
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 493
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72,
+    119,
+    148
+   ],
+   "readout_shared": 153,
+   "max_readout_difference": 0.4998779296875,
+   "delay_qubits": 153,
+   "max_delay_time_difference": 2.0973675007281835e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20261019T185810000000Z",
+   "shared": 1411,
+   "max_gate_difference": 2.220446049250313e-16,
+   "only_standard": {
+    "skipped_qubit": 39,
+    "non_unitary": 306
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 493
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72,
+    148,
+    152
+   ],
+   "readout_shared": 153,
+   "max_readout_difference": 0.083251953125,
+   "delay_qubits": 153,
+   "max_delay_time_difference": 2.0997786632533683e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20261024T135214000000Z",
+   "shared": 1413,
+   "max_gate_difference": 6.661338147750939e-16,
+   "only_standard": {
+    "skipped_qubit": 37,
+    "non_unitary": 306
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 495
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72,
+    120,
+    148
+   ],
+   "readout_shared": 153,
+   "max_readout_difference": 0.0867919921875,
+   "delay_qubits": 153,
+   "max_delay_time_difference": 2.109623198821809e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20261029T021003000000Z",
+   "shared": 1422,
+   "max_gate_difference": 1.3322676295501878e-15,
+   "only_standard": {
+    "skipped_qubit": 26,
+    "non_unitary": 308
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 498
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72,
+    148
+   ],
+   "readout_shared": 154,
+   "max_readout_difference": 0.0556640625,
+   "delay_qubits": 154,
+   "max_delay_time_difference": 2.1140358039822057e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20261101T103249000000Z",
+   "shared": 1422,
+   "max_gate_difference": 9.992007221626409e-16,
+   "only_standard": {
+    "skipped_qubit": 26,
+    "non_unitary": 308
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 498
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72,
+    148
+   ],
+   "readout_shared": 154,
+   "max_readout_difference": 0.07177734375,
+   "delay_qubits": 154,
+   "max_delay_time_difference": 2.0850292671913447e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20261104T112936000000Z",
+   "shared": 1422,
+   "max_gate_difference": 2.220446049250313e-16,
+   "only_standard": {
+    "skipped_qubit": 26,
+    "non_unitary": 308
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 498
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72,
+    148
+   ],
+   "readout_shared": 154,
+   "max_readout_difference": 0.0634765625,
+   "delay_qubits": 154,
+   "max_delay_time_difference": 2.1153627594995327e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20261108T061029000000Z",
+   "shared": 1422,
+   "max_gate_difference": 5.551115123125783e-16,
+   "only_standard": {
+    "skipped_qubit": 26,
+    "non_unitary": 308
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 498
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72,
+    148
+   ],
+   "readout_shared": 154,
+   "max_readout_difference": 0.130859375,
+   "delay_qubits": 154,
+   "max_delay_time_difference": 2.1077241189669977e-16,
+   "qubits_reporting_frequency": 0
+  },
+  {
+   "stamp": "20261113T110746000000Z",
+   "shared": 1422,
+   "max_gate_difference": 1.1102230246251565e-15,
+   "only_standard": {
+    "skipped_qubit": 26,
+    "non_unitary": 308
+   },
+   "only_standard_non_unitary_gates": [
+    "measure_2",
+    "reset"
+   ],
+   "only_ours": {
+    "not_in_target": 498
+   },
+   "only_ours_gates": [
+    "rx",
+    "rzz"
+   ],
+   "unexplained": [],
+   "skipped_qubits": [
+    72,
+    148
+   ],
+   "readout_shared": 154,
+   "max_readout_difference": 0.48583984375,
+   "delay_qubits": 154,
+   "max_delay_time_difference": 2.0990142874886471e-16,
+   "qubits_reporting_frequency": 0
+  }
+ ],
+ "moved_to_a_file_with_configuration": 7,
+ "from_backend_properties": {
+  "stamp": "20261113T110746000000Z",
+  "outcome": "BackendPropertyError: \"Couldn't find the property 'frequency' for qubit 0.\""
+ },
+ "outcomes": {
+  "GHZ, 5 qubits": {
+   "gates": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "as_built": [
+    0.01585569665623495,
+    0.016560642217439876,
+    0.018253790950698436,
+    0.020397442767289935,
+    0.019800034564460806,
+    0.014881365307456719,
+    0.016622586355499097,
+    0.008633815886919487,
+    0.0182944171338736,
+    0.019194282437201123,
+    0.027422552370699495,
+    0.034971361504183895,
+    0.016094421056544024,
+    0.03354722135218868,
+    0.020002832898858652,
+    0.02328883272781456,
+    0.45232292112507144,
+    0.022024496302915017,
+    0.02508156167872507,
+    0.017277978118471343,
+    0.017982202103792873,
+    0.022211391024079166,
+    0.02136311616483312,
+    0.02212172192476907
+   ],
+   "readout": [
+    0.01585569665623495,
+    0.016560642217439876,
+    0.018253790950698436,
+    0.020397442767289935,
+    0.019800034564460806,
+    0.014881365307456719,
+    0.016622586355499097,
+    0.008633815886919487,
+    0.0182944171338736,
+    0.019194282437201123,
+    0.027422552370699495,
+    0.034971361504183895,
+    0.016094421056544024,
+    0.03354722135218868,
+    0.020002832898858652,
+    0.02328883272781456,
+    0.45232292112507144,
+    0.022024496302915017,
+    0.02508156167872507,
+    0.017277978118471343,
+    0.017982202103792873,
+    0.022211391024079166,
+    0.02136311616483312,
+    0.02212172192476907
+   ],
+   "skipped": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+   ]
+  },
+  "GHZ, 5 qubits, second chain": {
+   "gates": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "as_built": [
+    0.025337163564488646,
+    0.0217230045186401,
+    0.012373846924022307,
+    0.01844490726499844,
+    0.01692052549591551,
+    0.09483690203782544,
+    0.02020901566345759,
+    0.026591290568097038,
+    0.03521102039927157,
+    0.02996065220779922,
+    0.02029815586033445,
+    0.12490531706507789,
+    0.037284949290870145,
+    0.02370874356425593,
+    0.026804180955125524,
+    0.012358993867905533,
+    0.452511906901943,
+    0.010052559707709869,
+    0.012025974638446082,
+    0.04780726026053152,
+    0.07362907751162806,
+    0.0218211786642452,
+    0.00946332005279057,
+    0.0665157577703746
+   ],
+   "readout": [
+    0.025337163564488646,
+    0.0217230045186401,
+    0.012373846924022307,
+    0.01844490726499844,
+    0.01692052549591551,
+    0.09483690203782544,
+    0.02020901566345759,
+    0.026591290568097038,
+    0.03521102039927157,
+    0.02996065220779922,
+    0.02029815586033445,
+    0.12490531706507789,
+    0.037284949290870145,
+    0.02370874356425593,
+    0.026804180955125524,
+    0.012358993867905533,
+    0.452511906901943,
+    0.010052559707709869,
+    0.012025974638446082,
+    0.04780726026053152,
+    0.07362907751162806,
+    0.0218211786642452,
+    0.00946332005279057,
+    0.0665157577703746
+   ],
+   "skipped": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+   ]
+  },
+  "QFT, 5 qubits": {
+   "gates": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "as_built": [
+    0.014953789505396567,
+    0.016155073545769776,
+    0.014208430358428411,
+    0.016882767558530964,
+    0.01775244728153566,
+    0.013582997243958731,
+    0.01576864627104253,
+    0.008436336454476742,
+    0.016133811848035445,
+    0.01666693316911094,
+    0.023377209506268315,
+    0.031699031321032196,
+    0.014715623978820178,
+    0.03024127002487,
+    0.017995310520379806,
+    0.02087278589534126,
+    0.46450924840808444,
+    0.020131694112360113,
+    0.022571430178764666,
+    0.016050602810777952,
+    0.01577845569400181,
+    0.019408588126674665,
+    0.01960407903346586,
+    0.01997076257896908
+   ],
+   "readout": [
+    0.014953789505396567,
+    0.016155073545769776,
+    0.014208430358428411,
+    0.016882767558530964,
+    0.01775244728153566,
+    0.013582997243958731,
+    0.01576864627104253,
+    0.008436336454476742,
+    0.016133811848035445,
+    0.01666693316911094,
+    0.023377209506268315,
+    0.031699031321032196,
+    0.014715623978820178,
+    0.03024127002487,
+    0.017995310520379806,
+    0.02087278589534126,
+    0.46450924840808444,
+    0.020131694112360113,
+    0.022571430178764666,
+    0.016050602810777952,
+    0.01577845569400181,
+    0.019408588126674665,
+    0.01960407903346586,
+    0.01997076257896908
+   ],
+   "skipped": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+   ]
+  },
+  "idle, 5 qubits, 400 identities": {
+   "gates": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "as_built": [
+    0.011830186402563466,
+    0.01424606383051909,
+    0.010163771415755732,
+    0.010573373505539944,
+    0.012046852780325676,
+    0.011210101554099777,
+    0.013141079769295239,
+    0.008056640625001983,
+    0.010215903376526302,
+    0.010418132028631705,
+    0.014041642370514022,
+    0.019983011188310775,
+    0.01044540397520142,
+    0.022336018423526494,
+    0.011153930344818102,
+    0.013655504715363379,
+    0.43592778587012687,
+    0.014914909962582053,
+    0.01455298707004906,
+    0.012657441490632446,
+    0.010251832850056923,
+    0.013451516514620704,
+    0.013458584194733779,
+    0.013188287539535127
+   ],
+   "readout": [
+    0.011830186402563466,
+    0.01424606383051909,
+    0.010163771415755732,
+    0.010573373505539944,
+    0.012046852780325676,
+    0.011210101554099777,
+    0.013141079769295239,
+    0.008056640625001983,
+    0.010215903376526302,
+    0.010418132028631705,
+    0.014041642370514022,
+    0.019983011188310775,
+    0.01044540397520142,
+    0.022336018423526494,
+    0.011153930344818102,
+    0.013655504715363379,
+    0.43592778587012687,
+    0.014914909962582053,
+    0.01455298707004906,
+    0.012657441490632446,
+    0.010251832850056923,
+    0.013451516514620704,
+    0.013458584194733779,
+    0.013188287539535127
+   ],
+   "skipped": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+   ]
+  },
+  "idle, 5 qubits, 20 us delay": {
+   "gates": [
+    1.1669742320911947e-16,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.3275039162548297e-16,
+    1.1704640078338824e-16,
+    0.0,
+    0.0,
+    0.0,
+    1.2610626518722023e-16,
+    0.0,
+    1.1334656086978145e-16,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    2.8998342355840423e-16,
+    0.0
+   ],
+   "as_built": [
+    0.012641555016491574,
+    0.014127659779864223,
+    0.012249693945075009,
+    0.011485455278253029,
+    0.012851098508740702,
+    0.011413041810552312,
+    0.01361580316648333,
+    0.00805664062500001,
+    0.010623670289809593,
+    0.01065503501742979,
+    0.015581124985616944,
+    0.020441493980416947,
+    0.011429537185005834,
+    0.02402941547989586,
+    0.01161713938976605,
+    0.014780881132871354,
+    0.43587612947023074,
+    0.015381451871811672,
+    0.016331046819115815,
+    0.01328901554488772,
+    0.010608753248967722,
+    0.01450201714727809,
+    0.014061135850739292,
+    0.014063941525421566
+   ],
+   "readout": [
+    0.012641555016491479,
+    0.014127659779864223,
+    0.012249693945075009,
+    0.011485455278253029,
+    0.012851098508740702,
+    0.011413041810552312,
+    0.013615803166483332,
+    0.008056640624999998,
+    0.010623670289809593,
+    0.01065503501742979,
+    0.015581124985616944,
+    0.020441493980416857,
+    0.011429537185005834,
+    0.02402941547989578,
+    0.01161713938976605,
+    0.014780881132871354,
+    0.43587612947023074,
+    0.015381451871811672,
+    0.016331046819115815,
+    0.01328901554488772,
+    0.010608753248967722,
+    0.01450201714727809,
+    0.014061135850739351,
+    0.014063941525421566
+   ],
+   "skipped": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+   ]
+  }
+ }
+}

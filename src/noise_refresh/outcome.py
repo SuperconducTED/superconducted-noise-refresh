@@ -11,9 +11,27 @@ from qiskit_aer import AerSimulator
 from qiskit_aer.noise import NoiseModel
 from superconducted.types import CalibrationSnapshot
 
-from .models import readout_probabilities
+from .models import readout_channels, readout_probabilities
 
 FloatArray = npt.NDArray[np.float64]
+
+
+def model_assignment(model: NoiseModel, qubits: Sequence[int]) -> list[tuple[float, float] | None]:
+    """``(P(0|1), P(1|0))`` for each of ``qubits`` as ``model`` itself would apply it.
+
+    None for a qubit on which the model has no readout error. Feed the result to
+    :func:`apply_readout` to give an exact distribution the readout a sampled run of the same
+    model would show, whichever calibration fields that model was built from.
+    """
+    channels = readout_channels(model)
+    assignment: list[tuple[float, float] | None] = []
+    for q in qubits:
+        if q in channels:
+            matrix = np.asarray(channels[q].probabilities, dtype=np.float64)  # [prepared, measured]
+            assignment.append((float(matrix[1, 0]), float(matrix[0, 1])))
+        else:
+            assignment.append(None)
+    return assignment
 
 
 def apply_readout(probabilities: FloatArray, assignment: Sequence[tuple[float, float] | None]) -> FloatArray:

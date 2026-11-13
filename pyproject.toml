@@ -16,11 +16,16 @@ dependencies = [
     "superconducted @ git+https://github.com/SuperconducTED/superconducted-noise-engine@667972c597892b54f4b8c5105229e345280e9da0",
     "qiskit==2.4.1",
     "qiskit-aer==0.17.2",
+    # The converter that turns a device's configuration and properties into the target that
+    # NoiseModel.from_backend reads. noise_refresh.standard imports it from a non-public module.
+    "qiskit-ibm-runtime==0.49.1",
     "numpy==2.4.4",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=9,<10", "ruff>=0.15,<0.20"]
+# Reads the public calibration dataset's parquet file (noise_refresh.public).
+public = ["pyarrow==26.0.1"]
+dev = ["pytest>=9,<10", "ruff>=0.15,<0.20", "pyarrow==26.0.1"]
 
 [tool.hatch.metadata]
 allow-direct-references = true

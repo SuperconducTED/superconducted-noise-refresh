@@ -1,0 +1,28 @@
+snapshot 20261113T110746000000Z, GHZ on 5 qubits [0, 1, 2, 3, 4], 4096 shots, median of 5
+
+load_snapshot_ms                                   12.1
+replay_device_ms                                  173.6
+build_device_from_backend_ms                     3427.5
+run_device_from_backend_ms                       1432.3
+build_device_without_gate_error_ms               1142.5
+run_device_without_gate_error_ms                  230.3
+build_device_with_gate_error_ms                  6486.5
+run_device_with_gate_error_ms                    2502.0
+replay_circuit_ms                                  25.0
+build_circuit_from_backend_ms                      75.9
+run_circuit_from_backend_ms                        89.9
+build_circuit_without_gate_error_ms                31.4
+run_circuit_without_gate_error_ms                  32.7
+build_circuit_with_gate_error_ms                  163.2
+run_circuit_with_gate_error_ms                    137.6
+run_noiseless_ms                                   29.9
+
+model                             gate channels  two-qubit  readout
+device_from_backend                        1756        352      156
+device_without_gate_error                  1920        688      154
+device_with_gate_error                     1920        688      154
+circuit_from_backend                         53          8      156
+circuit_without_gate_error                   56         16        5
+circuit_with_gate_error                      56         16        5
+
+wrote results\stage4\build_cost.json

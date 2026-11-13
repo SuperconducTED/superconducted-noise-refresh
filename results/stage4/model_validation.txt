@@ -1,0 +1,27 @@
+
+24 snapshots of ibm_fez, whole device
+7 of them replace an evenly spaced file that carries no configuration
+
+gate channels in both models          813 to 1433
+largest superoperator difference      2.00e-15
+unexplained keys, all snapshots       0
+qubits the engine skips               1 to 3 of 156
+only_standard skipped_qubit           7 to 39 keys
+only_standard non_unitary             155 to 310 keys
+only_ours     not_in_target           493 to 658 keys
+gates only ours has                   ['rx', 'rzz', 'xslow']
+instructions only from_backend has    ['measure_2', 'reset']
+largest readout matrix difference     0.4999
+largest relative delay-time difference 2.12e-16
+from_backend_properties on the last   BackendPropertyError: "Couldn't find the property 'frequency' for qubit 0."
+
+total variation between the two models' outputs, built for the circuit's qubits
+case                                             gates              as built          readout only  chain qubit skipped
+                                     median        max     median        max     median        max
+GHZ, 5 qubits                      0.00e+00   0.00e+00   1.99e-02   4.52e-01   1.99e-02   4.52e-01  in 0 of 24
+GHZ, 5 qubits, second chain        0.00e+00   0.00e+00   2.45e-02   4.53e-01   2.45e-02   4.53e-01  in 0 of 24
+QFT, 5 qubits                      0.00e+00   0.00e+00   1.73e-02   4.65e-01   1.73e-02   4.65e-01  in 0 of 24
+idle, 5 qubits, 400 identities     0.00e+00   0.00e+00   1.29e-02   4.36e-01   1.29e-02   4.36e-01  in 0 of 24
+idle, 5 qubits, 20 us delay        0.00e+00   2.90e-16   1.35e-02   4.36e-01   1.35e-02   4.36e-01  in 0 of 24
+
+wrote results\stage4\model_validation.json
