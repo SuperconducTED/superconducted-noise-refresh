@@ -7,6 +7,10 @@ refreshing.
 **State on 2026-11-13.** A pilot on one device, a tested package and a draft protocol. Nothing
 is confirmed. Dates below are proposed targets, not commitments.
 
+**Progress on exploratory data, 2026-11-13.** Work that needed neither held-out data nor a
+decision was brought forward; each stage below says what exists. None of it is a result, the
+protocol is not frozen, and `PROTOCOL.md` section 7 lists six decisions it leaves open.
+
 ## What the article has to show
 
 A measurement on one device is a short paper. Each of these is needed for more:
@@ -33,6 +37,10 @@ A measurement on one device is a short paper. Each of these is needed for more:
 
 Done when: the freeze commit exists and the related-work table is in the repository.
 
+Exists: a draft table from a full-text search, `docs/related-work-draft.md`, spot-checked on
+five claims. Still to do: the author's own reading of the closest papers, the one repository
+the search did not open, and the freeze itself.
+
 ### Stage 2. Confirm on held-out `ibm_fez` data (target: December 2026)
 
 - Export a later ref of the calibration archive; evaluate only at times after
@@ -54,6 +62,11 @@ states pass or fail per hypothesis.
 
 Done when: the same pass or fail table exists per device.
 
+Exists: the reader (`noise_refresh.public`), tested, and checked on `ibm_fez` rows of the
+exploratory period only (`results/stage3-prep`). Still to do: decide how flagged failed
+calibrations are replayed, check the licence and IBM's terms, and, after the freeze, run it on
+the other devices.
+
 ### Stage 4. Make the model the standard one (target: January 2027)
 
 - Add relaxation on `delay` instructions, as Aer's device model does. Without it the role of
@@ -64,6 +77,10 @@ Done when: the same pass or fail table exists per device.
   `from_backend` itself.
 
 Done when: a test asserts agreement with `from_backend`, and the timing table uses it.
+
+Exists: all three items, with their tests and `results/stage4`. Gate and delay channels agree
+with `from_backend`; readout and the treatment of unusable qubits do not, by construction.
+Still to do: choose between the two (protocol section 7, decisions 1 to 3).
 
 ### Stage 5. The method (target: January to February 2027)
 
@@ -76,6 +93,11 @@ Done when: a test asserts agreement with `from_backend`, and the timing table us
 
 Done when: the score's predictions and the rule's cost and accuracy are reported on held-out
 data for every device.
+
+Exists: the sweep and a score, a rigorous upper bound on the output shift computed from the
+instruction list (`noise_refresh.sensitivity`, `results/stage5`), developed and scored on the
+exploratory period. Still to do: a pass rule for it in the protocol, the refresh rule and its
+comparison with the baselines and a level forecast (H6), and the held-out evaluation.
 
 ### Stage 6. Hardware (starts as early as stage 1 allows; runs for weeks)
 

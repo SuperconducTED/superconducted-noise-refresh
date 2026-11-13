@@ -24,7 +24,12 @@ before any held-out data in section 3 is read.
   probabilities), `gate_error` (each gate's reported error, analysed per gate type).
 - **Model.** `noise_refresh.models.build_model`: the engine's thermal-relaxation channels
   composed with a depolarizing error sized by Aer's own rule so that each gate's infidelity
-  equals its reported error, plus per-qubit readout error.
+  equals its reported error, plus per-qubit readout error from the two assignment
+  probabilities, plus thermal relaxation on `delay` instructions for their duration (added
+  2026-11-13). A qubit with missing T1 or T2, or with T2 > 2 T1, receives no error.
+- **Standard model.** `noise_refresh.standard.standard_model`: Aer's
+  `NoiseModel.from_backend` on the backend that IBM's own converter builds from a snapshot.
+  Section 7 lists how the two differ. Which of them the confirmatory runs use is not decided.
 - **Current model at time t.** The model built from the newest snapshot at t.
 - **Model stale by L.** The model built from the newest snapshot at least L older than t.
 - **Distance.** Total variation between exact output distributions (density-matrix
@@ -80,11 +85,57 @@ routes exist and one must be chosen before the freeze:
 
 ## 7. Known gaps
 
-- Idle time is modelled with identity gates, whose total infidelity the reported gate error
-  fixes. Aer's own device model adds relaxation to `delay` instructions, which this model
-  does not. H5 is therefore untested for delay-based idling, where T1/T2 should matter most.
+Updated 2026-11-13 after exploratory work on stages 3 to 5. Section 4 was not changed by it.
+
 - The "current model" is built from the newest reading, which the team's measurements show is
   a slowly moving level plus scatter. Agreement with it is not agreement with the device.
-- Device-wide build times come from an untuned builder that calls the engine's builder twice.
-- One machine, a cloud container, Python 3.13. CI targets 3.11 and 3.12.
-- No full-text literature check has been done yet.
+- **Delays.** The model now adds relaxation to `delay` instructions. H5 speaks of "every
+  circuit of calibrated gates" and the exploratory sweep agrees with it there (T1/T2 old by
+  itself costs at most 0.0011). On delays the same sweep has T1/T2 as the best single refresh
+  from 5 microseconds of waiting (`results/stage5`). Whether H5 should name delays, and
+  whether a hypothesis about delays is added, is open.
+- **The model is not `from_backend`.** Gate and delay channels are the same to 2e-15 on the
+  keys both carry (`results/stage4`). They differ in readout (two assignment probabilities
+  here, one mean error there), in unusable qubits (no error here, T2 truncated or assumed
+  there) and in gate sets. The readout difference moves outputs by a median of 0.013 to 0.025,
+  as much as the 7-day staleness the pilot measured, so H3 depends on which is used.
+- **The skip rule can switch a qubit's whole error off.** A qubit whose T2 exceeds 2 T1 in one
+  snapshot has no gate, delay or readout error in that snapshot's model. This happens to a
+  chain qubit in 2 of 2,926 files for the first chain; 27 of the 156 qubits are affected at
+  some time. `run_staleness` still applies the snapshot's readout to such a qubit; `run_sweep`
+  does not, as the model would not.
+- **Snapshots without a configuration.** 1,119 of the 2,926 archived snapshots carry none, and
+  `from_backend` cannot be replayed on them without borrowing one from another snapshot.
+- **The "QFT" benchmark has a single correct answer.** The QFT of the uniform superposition is
+  the all-zeros string. The circuit measures accumulated gate error; it is not a circuit with
+  a spread-out output, and the circuit list has none.
+- **The bound was scored on the data it was developed on.** `noise_refresh.sensitivity` and
+  the sweep circuits were written against the exploratory period. Section 4 has no hypothesis
+  or pass rule for the bound yet.
+- **Replaying the public dataset.** T1, T2 and readout fields are reproduced exactly on
+  `ibm_fez`; gate errors are not always, because the table holds failed calibrations that the
+  served documents did not keep (`results/stage3-prep`). The treatment of those rows has to be
+  fixed before the freeze, and for other devices it cannot be checked against an archive. The
+  table was read on 2026-11-13 for `ibm_fez` only, at a revision dated 2026-10-23, by a reader
+  that applies the device and the time limit while the file is scanned.
+- Device-wide build times are now measured with Aer's own builder, on one desktop machine.
+- Two machines so far: a Linux cloud container with Python 3.13 (the pilot) and a Windows
+  desktop with Python 3.12. The second reproduces the pilot's per-file distances to 1e-13. CI
+  targets 3.11 and 3.12 and has not run yet.
+- A full-text literature check exists as a draft (`docs/related-work-draft.md`) that has been
+  spot-checked only. It names no paper that does this study, four that overlap in part, and
+  one repository that was not read.
+
+### Decisions these gaps leave open
+
+All of them are the author's, and all come before the freeze.
+
+1. Readout in the confirmatory model: the two assignment probabilities, or the single mean
+   error that `from_backend` uses.
+2. Unusable qubits: the engine's skip rule, or Aer's truncation.
+3. Whether `build_model` stays the study's model or `from_backend` on the replayed backend
+   replaces it; 1 and 2 follow from this if it does.
+4. The scope of H5 and whether delays get a hypothesis of their own.
+5. A hypothesis and pass rule for the simulation-free bound, and the circuit list it is
+   tested on.
+6. How flagged failed calibrations are treated when the public dataset is replayed.
