@@ -1,0 +1,818 @@
+{
+ "provenance": {
+  "calibration_data_ref": "00c9a1c7229f2cf2488656575d2722c63ad8cdd5",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "cpus": 20,
+  "versions": {
+   "qiskit": "2.4.1",
+   "qiskit-aer": "0.17.2",
+   "qiskit-ibm-runtime": "0.49.1",
+   "numpy": "2.4.4",
+   "superconducted": "0.1.0"
+  }
+ },
+ "backend": "ibm_fez",
+ "read_until": "2026-11-13T11:07:46+00:00",
+ "omitted_keys": [
+  [
+   "T1",
+   72
+  ],
+  [
+   "T2",
+   72
+  ]
+ ],
+ "chain": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "replays": [
+  {
+   "failure_ceilings_replayed": true,
+   "failure_ceiling_rows": 212289,
+   "events": 9898114,
+   "events_span": [
+    "2025-05-16T13:33:16+00:00",
+    "2026-10-23T11:21:57.936542+00:00"
+   ],
+   "rescaled_rows": 29552,
+   "dropped_rows": 35,
+   "totals": {
+    "T1 equal": 3720,
+    "T2 equal": 3720,
+    "cz:gate_error differs": 342,
+    "cz:gate_error equal": 8106,
+    "cz:gate_length equal": 8448,
+    "id:gate_error differs": 153,
+    "id:gate_error equal": 3591,
+    "id:gate_length equal": 3744,
+    "measure:gate_error equal": 3744,
+    "measure:gate_length equal": 3744,
+    "measure_2:gate_error equal": 2496,
+    "measure_2:gate_length equal": 2496,
+    "measure_reset:gate_length equal": 2184,
+    "measure_reset_2:gate_length equal": 2184,
+    "prob_meas0_prep1 equal": 3744,
+    "prob_meas1_prep0 equal": 3744,
+    "readout_error equal": 3744,
+    "reset:gate_length equal": 3744,
+    "reset_2:gate_length equal": 2184,
+    "rx:gate_error differs": 153,
+    "rx:gate_error equal": 3591,
+    "rx:gate_length equal": 3744,
+    "rz:gate_error equal": 3744,
+    "rz:gate_length equal": 3744,
+    "rzz:gate_error differs": 334,
+    "rzz:gate_error equal": 8114,
+    "rzz:gate_length equal": 8448,
+    "sx:gate_error differs": 153,
+    "sx:gate_error equal": 3591,
+    "sx:gate_length equal": 3744,
+    "x:gate_error differs": 153,
+    "x:gate_error equal": 3591,
+    "x:gate_length equal": 3744,
+    "xslow:gate_error equal": 2184,
+    "xslow:gate_error only replayed": 1560,
+    "xslow:gate_length equal": 2184,
+    "xslow:gate_length only replayed": 1560
+   },
+   "documents": [
+    {
+     "stamp": "20260513T121322000000Z",
+     "last_update_date": "2026-05-13T12:13:22+00:00",
+     "fields_equal": 2926,
+     "fields_not_equal": {
+      "cz:gate_error differs": 342,
+      "id:gate_error differs": 153,
+      "rx:gate_error differs": 153,
+      "rzz:gate_error differs": 334,
+      "sx:gate_error differs": 153,
+      "x:gate_error differs": 153,
+      "xslow:gate_error only replayed": 156,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.8218528189455083
+    },
+    {
+     "stamp": "20260523T172605000000Z",
+     "last_update_date": "2026-05-23T17:26:05+00:00",
+     "fields_equal": 4526,
+     "fields_not_equal": {},
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260605T043513000000Z",
+     "last_update_date": "2026-06-05T04:35:13+00:00",
+     "fields_equal": 4214,
+     "fields_not_equal": {
+      "xslow:gate_error only replayed": 156,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260617T234821000000Z",
+     "last_update_date": "2026-06-17T23:48:21+00:00",
+     "fields_equal": 4214,
+     "fields_not_equal": {
+      "xslow:gate_error only replayed": 156,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260704T203518000000Z",
+     "last_update_date": "2026-07-04T20:35:18+00:00",
+     "fields_equal": 4214,
+     "fields_not_equal": {
+      "xslow:gate_error only replayed": 156,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260715T125406000000Z",
+     "last_update_date": "2026-07-15T12:54:06+00:00",
+     "fields_equal": 4214,
+     "fields_not_equal": {
+      "xslow:gate_error only replayed": 156,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260727T084024000000Z",
+     "last_update_date": "2026-07-27T08:40:24+00:00",
+     "fields_equal": 4214,
+     "fields_not_equal": {
+      "xslow:gate_error only replayed": 156,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260805T230651000000Z",
+     "last_update_date": "2026-08-05T23:06:51+00:00",
+     "fields_equal": 4214,
+     "fields_not_equal": {
+      "xslow:gate_error only replayed": 156,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260818T181047000000Z",
+     "last_update_date": "2026-08-18T18:10:47+00:00",
+     "fields_equal": 4526,
+     "fields_not_equal": {
+      "xslow:gate_error only replayed": 156,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260823T224611000000Z",
+     "last_update_date": "2026-08-23T22:46:11+00:00",
+     "fields_equal": 4526,
+     "fields_not_equal": {
+      "xslow:gate_error only replayed": 156,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260907T231620000000Z",
+     "last_update_date": "2026-09-07T23:16:20+00:00",
+     "fields_equal": 4994,
+     "fields_not_equal": {
+      "xslow:gate_error only replayed": 156,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260912T122205000000Z",
+     "last_update_date": "2026-09-12T12:22:05+00:00",
+     "fields_equal": 5306,
+     "fields_not_equal": {},
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260915T064040000000Z",
+     "last_update_date": "2026-09-15T06:40:40+00:00",
+     "fields_equal": 5306,
+     "fields_not_equal": {},
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260918T155652000000Z",
+     "last_update_date": "2026-09-18T15:56:52+00:00",
+     "fields_equal": 5306,
+     "fields_not_equal": {},
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260921T171702000000Z",
+     "last_update_date": "2026-09-21T17:17:02+00:00",
+     "fields_equal": 5306,
+     "fields_not_equal": {},
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260926T060115000000Z",
+     "last_update_date": "2026-09-26T06:01:15+00:00",
+     "fields_equal": 5306,
+     "fields_not_equal": {},
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260929T095625000000Z",
+     "last_update_date": "2026-09-29T09:56:25+00:00",
+     "fields_equal": 5306,
+     "fields_not_equal": {},
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20261002T130737000000Z",
+     "last_update_date": "2026-10-02T13:07:37+00:00",
+     "fields_equal": 5306,
+     "fields_not_equal": {},
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20261005T204223000000Z",
+     "last_update_date": "2026-10-05T20:42:23+00:00",
+     "fields_equal": 5306,
+     "fields_not_equal": {},
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20261009T070024000000Z",
+     "last_update_date": "2026-10-09T07:00:24+00:00",
+     "fields_equal": 5306,
+     "fields_not_equal": {},
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20261012T172525000000Z",
+     "last_update_date": "2026-10-12T17:25:25+00:00",
+     "fields_equal": 5306,
+     "fields_not_equal": {},
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20261016T112817000000Z",
+     "last_update_date": "2026-10-16T11:28:17+00:00",
+     "fields_equal": 5306,
+     "fields_not_equal": {},
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20261019T144414000000Z",
+     "last_update_date": "2026-10-19T14:44:14+00:00",
+     "fields_equal": 5306,
+     "fields_not_equal": {},
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20261023T111849000000Z",
+     "last_update_date": "2026-10-23T11:18:49+00:00",
+     "fields_equal": 5306,
+     "fields_not_equal": {},
+     "model": "equal",
+     "ghz_distance": 0.0
+    }
+   ]
+  },
+  {
+   "failure_ceilings_replayed": false,
+   "failure_ceiling_rows": 212289,
+   "events": 9685825,
+   "events_span": [
+    "2025-05-16T13:33:16+00:00",
+    "2026-10-23T11:21:57.936542+00:00"
+   ],
+   "rescaled_rows": 29552,
+   "dropped_rows": 35,
+   "totals": {
+    "T1 equal": 3720,
+    "T2 equal": 3720,
+    "cz:gate_error differs": 34,
+    "cz:gate_error equal": 8228,
+    "cz:gate_error only archived": 186,
+    "cz:gate_length equal": 8448,
+    "id:gate_error differs": 3,
+    "id:gate_error equal": 3717,
+    "id:gate_error only archived": 24,
+    "id:gate_length equal": 3744,
+    "measure:gate_error equal": 3744,
+    "measure:gate_length equal": 3744,
+    "measure_2:gate_error equal": 2496,
+    "measure_2:gate_length equal": 2496,
+    "measure_reset:gate_length equal": 2184,
+    "measure_reset_2:gate_length equal": 2184,
+    "prob_meas0_prep1 equal": 3744,
+    "prob_meas1_prep0 equal": 3744,
+    "readout_error equal": 3744,
+    "reset:gate_length equal": 3744,
+    "reset_2:gate_length equal": 2184,
+    "rx:gate_error differs": 3,
+    "rx:gate_error equal": 3717,
+    "rx:gate_error only archived": 24,
+    "rx:gate_length equal": 3744,
+    "rz:gate_error equal": 3744,
+    "rz:gate_length equal": 3744,
+    "rzz:gate_error differs": 182,
+    "rzz:gate_error equal": 8122,
+    "rzz:gate_error only archived": 144,
+    "rzz:gate_length equal": 8448,
+    "sx:gate_error differs": 3,
+    "sx:gate_error equal": 3717,
+    "sx:gate_error only archived": 24,
+    "sx:gate_length equal": 3744,
+    "x:gate_error differs": 3,
+    "x:gate_error equal": 3717,
+    "x:gate_error only archived": 24,
+    "x:gate_length equal": 3744,
+    "xslow:gate_error equal": 2170,
+    "xslow:gate_error only archived": 14,
+    "xslow:gate_error only replayed": 1550,
+    "xslow:gate_length equal": 2184,
+    "xslow:gate_length only replayed": 1560
+   },
+   "documents": [
+    {
+     "stamp": "20260513T121322000000Z",
+     "last_update_date": "2026-05-13T12:13:22+00:00",
+     "fields_equal": 4174,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error differs": 2,
+      "id:gate_error only archived": 1,
+      "rx:gate_error differs": 2,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 12,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error differs": 2,
+      "sx:gate_error only archived": 1,
+      "x:gate_error differs": 2,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only replayed": 155,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260523T172605000000Z",
+     "last_update_date": "2026-05-23T17:26:05+00:00",
+     "fields_equal": 4489,
+     "fields_not_equal": {
+      "cz:gate_error differs": 4,
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 14,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only archived": 1
+     },
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260605T043513000000Z",
+     "last_update_date": "2026-06-05T04:35:13+00:00",
+     "fields_equal": 4182,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 12,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only replayed": 155,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260617T234821000000Z",
+     "last_update_date": "2026-06-17T23:48:21+00:00",
+     "fields_equal": 4184,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 10,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only replayed": 155,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260704T203518000000Z",
+     "last_update_date": "2026-07-04T20:35:18+00:00",
+     "fields_equal": 4178,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error differs": 1,
+      "id:gate_error only archived": 1,
+      "rx:gate_error differs": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 12,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error differs": 1,
+      "sx:gate_error only archived": 1,
+      "x:gate_error differs": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only replayed": 155,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260715T125406000000Z",
+     "last_update_date": "2026-07-15T12:54:06+00:00",
+     "fields_equal": 4184,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 10,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only replayed": 155,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260727T084024000000Z",
+     "last_update_date": "2026-07-27T08:40:24+00:00",
+     "fields_equal": 4186,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 8,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only replayed": 155,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260805T230651000000Z",
+     "last_update_date": "2026-08-05T23:06:51+00:00",
+     "fields_equal": 4184,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 10,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only replayed": 155,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260818T181047000000Z",
+     "last_update_date": "2026-08-18T18:10:47+00:00",
+     "fields_equal": 4498,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 8,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only replayed": 155,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260823T224611000000Z",
+     "last_update_date": "2026-08-23T22:46:11+00:00",
+     "fields_equal": 4500,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 6,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only replayed": 155,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260907T231620000000Z",
+     "last_update_date": "2026-09-07T23:16:20+00:00",
+     "fields_equal": 4968,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 6,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only replayed": 155,
+      "xslow:gate_length only replayed": 156
+     },
+     "model": "differs",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260912T122205000000Z",
+     "last_update_date": "2026-09-12T12:22:05+00:00",
+     "fields_equal": 5279,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 6,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only archived": 1
+     },
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260915T064040000000Z",
+     "last_update_date": "2026-09-15T06:40:40+00:00",
+     "fields_equal": 5279,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 6,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only archived": 1
+     },
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260918T155652000000Z",
+     "last_update_date": "2026-09-18T15:56:52+00:00",
+     "fields_equal": 5279,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 6,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only archived": 1
+     },
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260921T171702000000Z",
+     "last_update_date": "2026-09-21T17:17:02+00:00",
+     "fields_equal": 5279,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 6,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only archived": 1
+     },
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260926T060115000000Z",
+     "last_update_date": "2026-09-26T06:01:15+00:00",
+     "fields_equal": 5279,
+     "fields_not_equal": {
+      "cz:gate_error differs": 2,
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 6,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only archived": 1
+     },
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20260929T095625000000Z",
+     "last_update_date": "2026-09-29T09:56:25+00:00",
+     "fields_equal": 5281,
+     "fields_not_equal": {
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 6,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only archived": 1
+     },
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20261002T130737000000Z",
+     "last_update_date": "2026-10-02T13:07:37+00:00",
+     "fields_equal": 5281,
+     "fields_not_equal": {
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 6,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only archived": 1
+     },
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20261005T204223000000Z",
+     "last_update_date": "2026-10-05T20:42:23+00:00",
+     "fields_equal": 5281,
+     "fields_not_equal": {
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 6,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only archived": 1
+     },
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20261009T070024000000Z",
+     "last_update_date": "2026-10-09T07:00:24+00:00",
+     "fields_equal": 5281,
+     "fields_not_equal": {
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 6,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only archived": 1
+     },
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20261012T172525000000Z",
+     "last_update_date": "2026-10-12T17:25:25+00:00",
+     "fields_equal": 5283,
+     "fields_not_equal": {
+      "cz:gate_error only archived": 8,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 4,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only archived": 1
+     },
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20261016T112817000000Z",
+     "last_update_date": "2026-10-16T11:28:17+00:00",
+     "fields_equal": 5285,
+     "fields_not_equal": {
+      "cz:gate_error only archived": 6,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 4,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only archived": 1
+     },
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20261019T144414000000Z",
+     "last_update_date": "2026-10-19T14:44:14+00:00",
+     "fields_equal": 5283,
+     "fields_not_equal": {
+      "cz:gate_error only archived": 6,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 6,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only archived": 1
+     },
+     "model": "equal",
+     "ghz_distance": 0.0
+    },
+    {
+     "stamp": "20261023T111849000000Z",
+     "last_update_date": "2026-10-23T11:18:49+00:00",
+     "fields_equal": 5283,
+     "fields_not_equal": {
+      "cz:gate_error only archived": 6,
+      "id:gate_error only archived": 1,
+      "rx:gate_error only archived": 1,
+      "rzz:gate_error differs": 6,
+      "rzz:gate_error only archived": 6,
+      "sx:gate_error only archived": 1,
+      "x:gate_error only archived": 1,
+      "xslow:gate_error only archived": 1
+     },
+     "model": "equal",
+     "ghz_distance": 0.0
+    }
+   ]
+  }
+ ]
+}

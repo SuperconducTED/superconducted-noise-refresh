@@ -1,0 +1,42 @@
+
+=== rows flagged as failed calibrations: replayed (212,289 such rows) ===
+9,898,114 events of ibm_fez, 2025-05-16 to 2026-10-23 11:21Z, read up to 2026-11-13 11:07Z
+29,552 T1/T2 rows rescaled from seconds; 35 rows of omitted keys dropped
+24 archived documents replayed at their own last_update_date
+
+field                            equal   differs  only archived  only replayed
+cz:gate_error                     8106       342              0              0
+id:gate_error                     3591       153              0              0
+rx:gate_error                     3591       153              0              0
+rzz:gate_error                    8114       334              0              0
+sx:gate_error                     3591       153              0              0
+x:gate_error                      3591       153              0              0
+xslow:gate_error                  2184         0              0           1560
+xslow:gate_length                 2184         0              0           1560
+all fields                      115760      4408 (not equal, any kind)
+
+documents with every compared field equal   14 of 24
+model for chain [0, 1, 2, 3, 4]                {'differs': 10, 'equal': 14}
+GHZ output, archived model against replayed  median 0.00e+00, max 8.22e-01, above 1e-3 in 1
+
+=== rows flagged as failed calibrations: left out (212,289 such rows) ===
+9,685,825 events of ibm_fez, 2025-05-16 to 2026-10-23 11:21Z, read up to 2026-11-13 11:07Z
+29,552 T1/T2 rows rescaled from seconds; 35 rows of omitted keys dropped
+24 archived documents replayed at their own last_update_date
+
+field                            equal   differs  only archived  only replayed
+cz:gate_error                     8228        34            186              0
+id:gate_error                     3717         3             24              0
+rx:gate_error                     3717         3             24              0
+rzz:gate_error                    8122       182            144              0
+sx:gate_error                     3717         3             24              0
+x:gate_error                      3717         3             24              0
+xslow:gate_error                  2170         0             14           1550
+xslow:gate_length                 2184         0              0           1560
+all fields                      116380      3778 (not equal, any kind)
+
+documents with every compared field equal   0 of 24
+model for chain [0, 1, 2, 3, 4]                {'differs': 10, 'equal': 14}
+GHZ output, archived model against replayed  median 0.00e+00, max 0.00e+00, above 1e-3 in 0
+
+wrote results\stage3-prep\public_replay.json
