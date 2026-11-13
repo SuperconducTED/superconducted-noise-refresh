@@ -154,6 +154,7 @@ hour each. `results/pilot` was produced by the scripts as they stood at commit `
 | `results/pilot/` | The pilot's output |
 | `results/stage4/`, `results/stage5/`, `results/stage3-prep/` | Exploratory output since the pilot |
 | `docs/implementations/` | One document per change: why, how, the mathematics, how it was verified |
+| `docs/lessons-learned.md` | Pitfalls found so far and what now guards each one; what is still not verified |
 
 ## Relation to the SuperconducTED noise engine
 
