@@ -41,6 +41,13 @@ The test measures how much of the change between readings the device confirms.
 Jobs are submitted by the author from the author's own IBM Quantum account. No credential
 enters the repository.
 
+No job has been run. `scripts/hardware_collect.py` submits the runs and stores what comes back
+without opening it; it has run only against a simulated device. On 2026-11-14 a pilot on an
+account shared with another experiment was prepared and then not run: the service reported
+that account's usage period as a rolling 28 days, so any use would have come out of the other
+experiment's allowance. Nothing was submitted; only the account's usage figures and the
+device's status were read.
+
 ## 3. Readings
 
 A reading is one qubit's `prob_meas0_prep1` or `prob_meas1_prep0` with the calibration date
@@ -91,8 +98,8 @@ readings.
 Coded and tested in `noise_refresh.hardware` before any count exists: the measured
 frequencies, the offset, the contrast, the share, the interval and the verdict. Not yet coded:
 choosing the newest and the old reading by calibration date, assigning runs to days, and the
-14-day minimum of section 7. They are written with the script that submits the runs, and the
-registration commit records both.
+14-day minimum of section 7. They are written before registration, and the registration commit
+records them together with the script that submits the runs.
 
 The score reads the two assignment probabilities themselves and builds no model, so the open
 choices of model and of unusable qubits (`PROTOCOL.md` section 7, decisions 2 and 3) do not
@@ -183,15 +190,17 @@ one continues, readings are renewed about once a day and each is a coarser estim
 Cost. One shot repeats every 251.7 microseconds (default delay, `x` and `measure`), so a run
 of two circuits executes in 2.1 seconds at 4,096 shots, 8.2 at 16,384 and 33.0 at 65,536. The
 proposed series of 42 runs executes in 5.8 minutes. This is shots times the repetition period;
-what the service charges for a job is not known here.
+what the service charges for a job is not known here. The account checked on 2026-11-14 is
+allowed 600 seconds in any 28 days, which would cover the series only if the charge stays close
+to the execution time.
 
 ## 9. Open before registration
 
 | # | Item | Proposed | Whose |
 | --- | --- | --- | --- |
 | 1 | Shots, runs a day, days | 16,384; 2; 21 | Author, once the allowance is known |
-| 2 | The allowance, that the account reaches `ibm_fez`, and that it is not the account another experiment runs from | none | Facts from the account |
-| 3 | What the service charges for one run | One trial job before registration, of which only the reported usage is read | Author |
+| 2 | The account the series runs from. The one checked on 2026-11-14 reaches `ibm_fez` and is allowed 600 seconds in a rolling 28 days, but another experiment runs from it; a second account is expected | The second account, once its allowance and its access to `ibm_fez` are checked | Author |
+| 3 | What the service charges for one run | One trial job on that account before registration, of which only the reported usage is read. None has been run | Author |
 | 4 | Where the readings come from | See below | Author |
 | 5 | The margin and the pass rule | 0.25; section 5 | Author |
 | 6 | The primary lag | 168 hours | Author |

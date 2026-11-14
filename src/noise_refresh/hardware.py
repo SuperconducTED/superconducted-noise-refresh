@@ -25,18 +25,20 @@ such property: once ``|e|`` exceeds ``|d|`` the contrast is ``+d`` or ``-d`` by 
 ``e`` and averages to nothing. :func:`symmetric_offset` estimates a constant difference without
 favouring either reading, for scoring with the absolute loss after removing it.
 
-Nothing here talks to a device. The module holds the scoring so that it is fixed, and tested,
-before any count exists. Which reading is the newest and which the old one for a run, and
+Nothing here talks to a device; ``scripts/hardware_collect.py`` does, with the two circuits
+built here. The module holds the scoring so that it is fixed, and tested, before any count
+exists. Which reading is the newest and which the old one for a run, and
 which day a run belongs to, are decided by the caller.
 """
 
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping
+from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
 
 import numpy as np
 import numpy.typing as npt
+from qiskit import QuantumCircuit
 
 FloatArray = npt.NDArray[np.float64]
 BoolArray = npt.NDArray[np.bool_]
@@ -47,6 +49,35 @@ READOUT_FIELDS: tuple[str, str] = ("prob_meas0_prep1", "prob_meas1_prep0")
 UNUSABLE = 0.5
 LOSSES: dict[str, Callable[[FloatArray], FloatArray]] = {"squared": np.square, "absolute": np.abs}
 VERDICTS: tuple[str, str, str] = ("better", "no advantage above the margin", "inconclusive")
+
+
+def readout_circuits(qubits: Sequence[int], device_qubits: int) -> tuple[QuantumCircuit, QuantumCircuit]:
+    """The two circuits of one run, at device width: every qubit left in 0, every qubit flipped.
+
+    Physical qubit ``qubits[i]`` is measured into classical bit ``i`` of a register named
+    ``c``. The circuits use only ``x`` and ``measure``, so a device that has both needs no
+    transpiler pass. Raises ``ValueError`` on a repeated or out-of-range qubit.
+    """
+    if len(set(qubits)) != len(qubits) or not all(0 <= q < device_qubits for q in qubits):
+        raise ValueError(f"qubits must be distinct and below {device_qubits}: {list(qubits)}")
+    zeros = QuantumCircuit(device_qubits, len(qubits), name="zeros")
+    ones = QuantumCircuit(device_qubits, len(qubits), name="ones")
+    for q in qubits:
+        ones.x(q)
+    for circuit in (zeros, ones):
+        circuit.measure(list(qubits), list(range(len(qubits))))
+    return zeros, ones
+
+
+def prepared_values_read(
+    zeros: Mapping[str, int], ones: Mapping[str, int], width: int, least: float = 0.8
+) -> bool:
+    """Whether every qubit reads the value it was prepared in, in at least ``least`` of the shots.
+
+    A yes or no about the run itself: the right qubits were flipped and the bits are in the
+    expected order. It says nothing about the size of any readout error.
+    """
+    return bool(np.all(measured_assignment(zeros, ones, width) <= 1.0 - least))
 
 
 def marginal_ones(counts: Mapping[str, int], width: int) -> FloatArray:

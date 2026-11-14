@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 import pytest
+from qiskit_aer import AerSimulator
 
 from noise_refresh.hardware import (
     VERDICTS,
@@ -12,12 +13,52 @@ from noise_refresh.hardware import (
     contrast,
     marginal_ones,
     measured_assignment,
+    prepared_values_read,
     reading_change,
+    readout_circuits,
     sums_by_day,
     symmetric_offset,
     usable,
     verdict,
 )
+
+
+def test_the_two_circuits_measure_the_named_qubits_in_order() -> None:
+    qubits = (5, 1, 7)
+    zeros, ones = readout_circuits(qubits, device_qubits=9)
+    assert zeros.num_qubits == ones.num_qubits == 9
+    assert zeros.count_ops() == {"measure": 3}
+    assert ones.count_ops() == {"x": 3, "measure": 3}
+    flipped = [ones.find_bit(i.qubits[0]).index for i in ones.data if i.operation.name == "x"]
+    assert sorted(flipped) == [1, 5, 7]
+    measured = [
+        (zeros.find_bit(i.qubits[0]).index, zeros.find_bit(i.clbits[0]).index)
+        for i in zeros.data
+        if i.operation.name == "measure"
+    ]
+    assert measured == [(5, 0), (1, 1), (7, 2)]
+    with pytest.raises(ValueError, match="distinct"):
+        readout_circuits((1, 1), device_qubits=9)
+    with pytest.raises(ValueError, match="below 9"):
+        readout_circuits((1, 9), device_qubits=9)
+
+
+def test_ideal_counts_of_the_two_circuits_give_no_assignment_error() -> None:
+    # End to end without noise: circuits, simulator, bit order, measured assignment.
+    zeros, ones = readout_circuits((5, 1, 7), device_qubits=9)
+    counts = AerSimulator().run([zeros, ones], shots=200).result().get_counts()
+    assert counts == [{"000": 200}, {"111": 200}]
+    assert np.array_equal(measured_assignment(counts[0], counts[1], 3), np.zeros((3, 2)))
+    assert prepared_values_read(counts[0], counts[1], 3)
+
+
+def test_the_validity_check_catches_a_qubit_that_was_not_flipped() -> None:
+    zeros = {"000": 100}
+    assert prepared_values_read(zeros, {"111": 95, "110": 5}, 3)
+    # Bit 1 reads 0 in every shot of the circuit that should have flipped it.
+    assert not prepared_values_read(zeros, {"101": 100}, 3)
+    # A circuit that leaves qubits in 0 and reads mostly 1 fails too.
+    assert not prepared_values_read({"001": 60, "000": 40}, {"111": 100}, 3)
 
 
 def test_marginals_follow_qiskit_bit_order() -> None:

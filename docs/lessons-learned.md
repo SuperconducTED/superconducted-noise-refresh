@@ -86,6 +86,20 @@ Added 2026-11-14. No job has been run; these come from the archive and from a si
 | A percentile bootstrap over 7 days is too narrow: a device with no advantage was called better in 9% of simulated series, against 3% at 14 days. | The 14-day minimum in `docs/hardware-preregistration.md` section 7 |
 | The number of shots did not change the simulated verdict between 4,096 and 65,536. It changes how well small changes are resolved. | `results/hardware-sizing/README.md` |
 
+## Running on the device
+
+Added 2026-11-14. No job has been run; these come from preparing one.
+
+| Lesson | Held in |
+| --- | --- |
+| The service's usage period is a rolling 28 days: the end it reports is the moment of the request. A range on a dashboard is that window on that day, not a cycle with a reset, and unused time does not expire. Ask twice, a minute apart, before planning around a reset. | `scripts/hardware_collect.py --check` prints the period |
+| An API key's identifier (`ApiKey-` and 36 characters, 43 in all) is not the key (44 characters, shown once when it is created). With the identifier the service answers "Provided API key could not be found". | This file |
+| Pasting into a hidden prompt does not work in the Windows console, and copying a command to paste it replaces a key held in the clipboard. A save command that pauses, then reads the clipboard and prints only the length, avoids both. | This file |
+| The client's `job.usage()` returns 0 while the service still marks the charge as pending. A budget kept on it overspends. | `charge_of` in `scripts/hardware_collect.py` |
+| The simulated device reports a job's status as an enum and the service as a string. A loop that compares with strings never ends on the simulated one. | `state` in `scripts/hardware_collect.py` |
+| The client's `active_account()` returns the saved key. A script whose output is shared must not call it, and a usage report is printed without its instance fields. | `scripts/hardware_collect.py` |
+| A workflow in a public repository has a public log and artifacts. Counts and calibration values would have to be encrypted before upload. | `docs/implementations/2026-11-14-hardware-collection-script.md` |
+
 ## Reproducibility and tooling
 
 | Lesson | Held in |
@@ -116,7 +130,8 @@ Added 2026-11-14. No job has been run; these come from the archive and from a si
   `snapshot_update_time` lead.
 - Nothing has been run on hardware. The sizing of the hardware test assumes six behaviours of
   the device and none is known to hold. What the service charges for a job, and whether it
-  answers a request for a device's properties at a past date, have not been tried.
+  answers a request for a device's properties at a past date, have not been tried. The script
+  that submits runs has run only against a simulated device.
 - `docs/related-work-draft.md` rests on one reading per paper for most rows; its header says which
   sources have been checked. One repository named in an earlier novelty check has not been read.
 - The literature search reports that Kourousias et al. (arXiv:2610.09931) argue that checks on one

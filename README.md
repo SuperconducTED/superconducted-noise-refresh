@@ -120,7 +120,8 @@ archive lies on a grid of 1/4096, and round by round the new readings fit counts
 that changed over 7 days moved by less than two standard errors. The model-to-model distances
 above therefore include the estimation noise of the readings. The draft proposes two circuits
 run repeatedly on the device and a score for how much of the change between readings the device
-confirms; its scoring code exists and no job has been run. The same look at the archive shows
+confirms; its scoring code and a script that submits the runs exist, and no job has been run.
+The same look at the archive shows
 that readout was renewed 4.3 times a day before 2026-10-27 and 1.1 times a day from then on.
 
 A draft related-work table from a full-text literature check is in

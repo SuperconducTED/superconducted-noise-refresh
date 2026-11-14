@@ -112,8 +112,10 @@ comes out.
 
 Exists (2026-11-14): a draft pre-registration, `docs/hardware-preregistration.md`, with its
 scoring code (`noise_refresh.hardware`) and a sizing simulation on the exploratory archive
-(`results/hardware-sizing`). Still to do: the nine open items the draft lists, the script
-that submits the runs, the registration commit, and the series itself.
+(`results/hardware-sizing`), and `scripts/hardware_collect.py`, which submits the runs and
+has run only against a simulated device. Still to do: the nine open items the draft lists, an
+account of the author's own to run from, the parts of the analysis that pick readings by date,
+the registration commit, and the series itself.
 
 ### Stage 7. Course deliverable (end of the Fall 2026 semester)
 
