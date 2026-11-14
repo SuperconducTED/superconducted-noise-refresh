@@ -111,6 +111,21 @@ Updated 2026-11-13 after exploratory work on stages 3 to 5. Section 4 was not ch
   chain qubit in 2 of 2,926 files for the first chain; 27 of the 156 qubits are affected at
   some time. `run_staleness` still applies the snapshot's readout to such a qubit; `run_sweep`
   does not, as the model would not.
+- **Readings are estimates** (added 2026-11-14). Every assignment probability in the archive
+  lies on a grid of 1/4096. Round by round, the new readings fit counts out of 4,096 shots in
+  570 of 732 device-wide rounds, out of 2,048 in 145 and out of 1,024 in 17; the archive does
+  not state the shot count. Measured against two 4,096-shot estimates, 55% of the first
+  chain's readings that changed over 7 days moved by less than two standard errors and 12% by
+  more than five (`results/hardware-sizing`). The distances of H2 and H3 are between two models
+  and include this estimation noise; they do not say how far the device moved. A hardware test
+  that would separate the two is drafted in `docs/hardware-preregistration.md`. It assumes the
+  author's own jobs, which section 6 leaves open, and is not registered.
+- **The readout rounds changed before the cut-off** (added 2026-11-14). Before 2026-10-27 the
+  device's readout was renewed 4.3 times a day, mostly on the 1/4096 grid. From that day to the
+  end of the exploratory period it was renewed 1.1 times a day, 16 of 19 rounds on the 1/1024
+  grid, and not at all after 2026-11-09 (`results/hardware-sizing`). The pilot values of
+  section 4 come almost entirely from the earlier pattern, and the held-out period begins in
+  the later one.
 - **Snapshots without a configuration.** 1,119 of the 2,926 archived snapshots carry none, and
   `from_backend` cannot be replayed on them without borrowing one from another snapshot.
 - **The "QFT" benchmark has a single correct answer.** The QFT of the uniform superposition is
@@ -146,3 +161,7 @@ All of them are the author's, and all come before the freeze.
 5. A hypothesis and pass rule for the simulation-free bound, and the circuit list it is
    tested on.
 6. How flagged failed calibrations are treated when the public dataset is replayed.
+7. The nine open items of the hardware pre-registration draft (its section 9), among them the
+   route of section 6 and whether jobs may start before the freeze.
+8. Whether the change in the readout rounds on 2026-10-27 alters any hypothesis or threshold
+   of section 4 before the freeze.

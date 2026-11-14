@@ -110,6 +110,11 @@ comparison with the baselines and a level forecast (H6), and the held-out evalua
 Done when: the pre-registered rule has been applied to the collected counts, whichever way it
 comes out.
 
+Exists (2026-11-14): a draft pre-registration, `docs/hardware-preregistration.md`, with its
+scoring code (`noise_refresh.hardware`) and a sizing simulation on the exploratory archive
+(`results/hardware-sizing`). Still to do: the nine open items the draft lists, the script
+that submits the runs, the registration commit, and the series itself.
+
 ### Stage 7. Course deliverable (end of the Fall 2026 semester)
 
 The CMPE 490 report is written from whatever stages 1 to 3 have produced by then. It does not

@@ -112,6 +112,17 @@ exactly. Gate errors are not always reproduced: the table holds failed calibrati
 device's served documents did not keep, and an event table cannot say that a device went back
 to an older calibration.
 
+**A hardware test of readout is drafted, not registered**
+([`docs/hardware-preregistration.md`](docs/hardware-preregistration.md),
+[`results/hardware-sizing/`](results/hardware-sizing/)). Every assignment probability in the
+archive lies on a grid of 1/4096, and round by round the new readings fit counts out of 4,096,
+2,048 or 1,024 shots. Measured against two 4,096-shot estimates, 55% of the chain's readings
+that changed over 7 days moved by less than two standard errors. The model-to-model distances
+above therefore include the estimation noise of the readings. The draft proposes two circuits
+run repeatedly on the device and a score for how much of the change between readings the device
+confirms; its scoring code exists and no job has been run. The same look at the archive shows
+that readout was renewed 4.3 times a day before 2026-10-27 and 1.1 times a day from then on.
+
 A draft related-work table from a full-text literature check is in
 [`docs/related-work-draft.md`](docs/related-work-draft.md). It has been spot-checked only.
 
@@ -133,6 +144,7 @@ python scripts/build_cost.py        --archive archive --out results/run/build_co
 python scripts/staleness.py         --archive archive --compact archive/ibm_fez.npz --out results/run/staleness.json
 python scripts/validate_model.py    --archive archive --compact archive/ibm_fez.npz --out results/run/model_validation.json
 python scripts/sweep.py             --archive archive --compact archive/ibm_fez.npz --out results/run/sweep.json
+python scripts/hardware_sizing.py   --archive archive --compact archive/ibm_fez.npz --out results/run/hardware_sizing.json
 ```
 
 The export is about 4.6 GB; keep it outside any folder that is synchronised to a cloud drive.
@@ -155,9 +167,11 @@ hour each. `results/pilot` was produced by the scripts as they stood at commit `
 | `src/noise_refresh/sensitivity.py` | A bound on the output shift between two calibrations, from the circuit's instruction list |
 | `src/noise_refresh/experiment.py` | The staleness experiment and the sweep |
 | `src/noise_refresh/public.py` | Replays the public event table into snapshot documents |
+| `src/noise_refresh/hardware.py` | Scores readout readings of different ages against counts measured on the device |
 | `scripts/` | One command per measurement; each writes JSON with its provenance |
 | `results/pilot/` | The pilot's output |
-| `results/stage4/`, `results/stage5/`, `results/stage3-prep/`, `results/readout-convention/` | Exploratory output since the pilot |
+| `results/stage4/`, `results/stage5/`, `results/stage3-prep/`, `results/readout-convention/`, `results/hardware-sizing/` | Exploratory output since the pilot |
+| `docs/hardware-preregistration.md` | The draft pre-registration of the hardware test |
 | `docs/implementations/` | One document per change: why, how, the mathematics, how it was verified |
 | `docs/lessons-learned.md` | Pitfalls found so far and what now guards each one; what is still not verified |
 

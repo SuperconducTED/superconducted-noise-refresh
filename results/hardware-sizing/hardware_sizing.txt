@@ -1,0 +1,299 @@
+2926 files over 184 days, chain [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+share of all assignment probabilities that are multiples of 1/4096: 1.0000
+chain medians: read 0 after 1 0.0134, read 1 after 0 0.0056; 79 readings at or above 0.5 in 23 files
+the chain's readout changes 4.00 times a day, median 4.4 h apart
+
+change between the newest reading and one at least this much older; usable pairs that changed
+   lag  changed  median |d|  mean |d|      rms  | in standard errors of two
+                                                | 4096-shot estimates: under 2 / over 5
+    6h    0.735      0.0029    0.0078   0.0231  | 0.612 / 0.105
+   24h    0.941      0.0034    0.0090   0.0264  | 0.562 / 0.127
+  168h    0.972      0.0034    0.0089   0.0255  | 0.548 / 0.124
+  720h    0.979      0.0037    0.0089   0.0230  | 0.521 / 0.141
+
+732 rounds renew at least 100 of the device's 312 readings; their new readings all lie on a grid of
+1/4096 in 570, 1/2048 in 145, 1/1024 in 17
+                           days  rounds  a day   1/4096  1/2048  1/1024
+before 20261027           166.5     713   4.28      568     144       1
+from 20261027              17.4      19   1.09        2       1      16
+the last round is in the file of 20261109T2354; the archive ends at 20261113T1107
+
+age of the chain's readout by its own calibration date, 120 files spread evenly: median 3.8 h, 5% under 0.3 h, 5% over 18.6 h
+
+one shot repeats every 251.7 microseconds (default delay plus x plus measure, 20261113T110746000000Z); two circuits take 2.1 s at 4096 shots, 8.2 s at 16384 shots, 33.0 s at 65536 shots
+this is shots times the repetition period; what the service charges for a job is not known here
+
+300 simulated series per assumption, each 28 days from a random start in 118 days of archive;
+shorter series and fewer runs are parts of the same series, so the series overlap. Verdicts use the 90% interval
+over days (500 resamples) and a margin of 0.25. Each cell: better / no advantage above the margin / inconclusive, percent.
+11.4% of the chain's readings are more than 5 standard errors from the slow level.
+
+the six ways of scoring; old reading 168 h old, 2 runs a day, 21 days, 16384 shots
+assumption                      pooled, squared                    pooled, absolute    pooled, absolute, offset removed                    typical, squared                   typical, absolute   typical, absolute, offset removed
+right                             100 /  0 /  0                       100 /  0 /  0                       100 /  0 /  0                       100 /  0 /  0                       100 /  0 /  0                       100 /  0 /  0
+estimate                          100 /  0 /  0                       100 /  0 /  0                       100 /  0 /  0                       100 /  0 /  0                       100 /  0 /  0                       100 /  0 /  0
+jumps                             100 /  0 /  0                       100 /  0 /  0                       100 /  0 /  0                       100 /  0 /  0                       100 /  0 /  0                       100 /  0 /  0
+level                               3 / 34 / 63                         5 / 84 / 11                         3 / 89 /  8                         4 / 31 / 65                         3 / 83 / 14                         2 / 88 / 10
+offset 0.01                       100 /  0 /  0                        97 /  3 /  0                       100 /  0 /  0                       100 /  0 /  0                        95 /  3 /  3                       100 /  0 /  0
+offset 0.03                        95 /  0 /  5                        77 / 19 /  4                       100 /  0 /  0                        86 /  0 / 14                        48 / 17 / 35                       100 /  0 /  0
+
+confirmed share, median [5%, 95%] over the series; 16384 shots, 21 days, 2 runs a day
+assumption   statistic, score                                  6 h old               24 h old              168 h old
+right        pooled, squared                       1.00 [ 0.99,  1.02]    1.00 [ 0.99,  1.01]    1.00 [ 0.99,  1.01]
+right        pooled, absolute                      0.90 [ 0.88,  0.94]    0.91 [ 0.88,  0.95]    0.91 [ 0.89,  0.94]
+right        pooled, absolute, offset removed      0.90 [ 0.87,  0.93]    0.90 [ 0.87,  0.94]    0.89 [ 0.85,  0.92]
+right        typical, squared                      1.00 [ 0.98,  1.02]    1.00 [ 0.99,  1.02]    1.00 [ 0.99,  1.01]
+right        typical, absolute                     0.89 [ 0.87,  0.92]    0.90 [ 0.88,  0.93]    0.91 [ 0.88,  0.93]
+right        typical, absolute, offset removed     0.88 [ 0.85,  0.91]    0.89 [ 0.87,  0.93]    0.88 [ 0.84,  0.91]
+estimate     pooled, squared                       0.97 [ 0.92,  1.01]    0.97 [ 0.92,  1.01]    0.97 [ 0.93,  1.01]
+estimate     pooled, absolute                      0.76 [ 0.70,  0.84]    0.77 [ 0.71,  0.87]    0.78 [ 0.72,  0.84]
+estimate     pooled, absolute, offset removed      0.75 [ 0.69,  0.84]    0.77 [ 0.70,  0.86]    0.76 [ 0.71,  0.83]
+estimate     typical, squared                      0.94 [ 0.85,  0.98]    0.95 [ 0.89,  0.99]    0.95 [ 0.89,  0.99]
+estimate     typical, absolute                     0.73 [ 0.66,  0.80]    0.75 [ 0.70,  0.82]    0.76 [ 0.71,  0.82]
+estimate     typical, absolute, offset removed     0.72 [ 0.64,  0.79]    0.75 [ 0.69,  0.82]    0.75 [ 0.69,  0.81]
+jumps        pooled, squared                       0.93 [ 0.78,  0.99]    0.93 [ 0.82,  0.99]    0.93 [ 0.82,  0.98]
+jumps        pooled, absolute                      0.56 [ 0.40,  0.73]    0.57 [ 0.44,  0.73]    0.56 [ 0.46,  0.71]
+jumps        pooled, absolute, offset removed      0.55 [ 0.39,  0.73]    0.56 [ 0.44,  0.72]    0.55 [ 0.46,  0.69]
+jumps        typical, squared                      0.82 [ 0.63,  0.92]    0.85 [ 0.72,  0.96]    0.84 [ 0.69,  0.94]
+jumps        typical, absolute                     0.50 [ 0.33,  0.63]    0.53 [ 0.39,  0.69]    0.53 [ 0.39,  0.67]
+jumps        typical, absolute, offset removed     0.49 [ 0.31,  0.62]    0.53 [ 0.40,  0.69]    0.51 [ 0.39,  0.65]
+level        pooled, squared                      -0.01 [-0.74,  0.79]   -0.00 [-0.18,  0.15]   -0.02 [-0.69,  0.54]
+level        pooled, absolute                     -0.01 [-0.24,  0.22]   -0.00 [-0.06,  0.04]   -0.02 [-0.23,  0.13]
+level        pooled, absolute, offset removed     -0.01 [-0.25,  0.22]   -0.00 [-0.06,  0.04]   -0.02 [-0.24,  0.12]
+level        typical, squared                     -0.00 [-0.35,  0.27]   -0.03 [-0.31,  0.24]   -0.00 [-0.44,  0.31]
+level        typical, absolute                    -0.01 [-0.14,  0.13]   -0.01 [-0.14,  0.08]   -0.01 [-0.17,  0.15]
+level        typical, absolute, offset removed    -0.00 [-0.15,  0.12]   -0.01 [-0.12,  0.08]   -0.01 [-0.19,  0.12]
+offset 0.01  pooled, squared                       1.00 [ 0.90,  1.10]    1.00 [ 0.96,  1.05]    1.01 [ 0.79,  1.11]
+offset 0.01  pooled, absolute                      0.38 [ 0.25,  0.55]    0.40 [ 0.26,  0.56]    0.40 [ 0.15,  0.54]
+offset 0.01  pooled, absolute, offset removed      0.86 [ 0.82,  0.90]    0.87 [ 0.83,  0.91]    0.86 [ 0.81,  0.90]
+offset 0.01  typical, squared                      1.03 [ 0.84,  1.18]    1.02 [ 0.91,  1.14]    1.03 [ 0.74,  1.17]
+offset 0.01  typical, absolute                     0.30 [ 0.18,  0.46]    0.35 [ 0.24,  0.52]    0.37 [ 0.16,  0.53]
+offset 0.01  typical, absolute, offset removed     0.84 [ 0.80,  0.88]    0.86 [ 0.82,  0.90]    0.85 [ 0.80,  0.89]
+offset 0.03  pooled, squared                       1.03 [ 0.69,  1.30]    1.00 [ 0.92,  1.13]    1.06 [ 0.58,  1.35]
+offset 0.03  pooled, absolute                      0.18 [ 0.04,  0.40]    0.21 [ 0.08,  0.40]    0.22 [-0.03,  0.45]
+offset 0.03  pooled, absolute, offset removed      0.83 [ 0.76,  0.89]    0.83 [ 0.78,  0.91]    0.83 [ 0.77,  0.88]
+offset 0.03  typical, squared                      1.10 [ 0.47,  1.52]    1.07 [ 0.68,  1.40]    1.14 [ 0.35,  1.55]
+offset 0.03  typical, absolute                     0.11 [-0.01,  0.31]    0.17 [ 0.02,  0.33]    0.20 [-0.04,  0.36]
+offset 0.03  typical, absolute, offset removed     0.80 [ 0.73,  0.85]    0.82 [ 0.77,  0.88]    0.82 [ 0.76,  0.86]
+
+pooled, squared; old reading 168 h old; 2 runs a day; by days and shots
+assumption   days     4096 shots      16384 shots      65536 shots  
+right           7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate        7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps           7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+level           7   16 / 29 / 55     17 / 28 / 55     17 / 28 / 55
+level          14    9 / 31 / 60      7 / 31 / 62      7 / 30 / 63
+level          21    3 / 34 / 63      3 / 34 / 63      3 / 34 / 63
+level          28    3 / 35 / 62      3 / 35 / 62      3 / 35 / 62
+offset 0.01     7   98 /  0 /  2     98 /  0 /  2     98 /  0 /  2
+offset 0.01    14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.01    21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.01    28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.03     7   69 /  4 / 27     70 /  4 / 26     70 /  4 / 26
+offset 0.03    14   90 /  1 /  9     89 /  2 /  9     89 /  2 /  9
+offset 0.03    21   95 /  0 /  5     95 /  0 /  5     95 /  0 /  5
+offset 0.03    28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+
+pooled, absolute; old reading 168 h old; 2 runs a day; by days and shots
+assumption   days     4096 shots      16384 shots      65536 shots  
+right           7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate        7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps           7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+level           7   16 / 63 / 21     15 / 62 / 22     16 / 62 / 23
+level          14   10 / 72 / 18      9 / 72 / 19      9 / 72 / 19
+level          21    4 / 84 / 11      5 / 84 / 11      4 / 84 / 12
+level          28    4 / 88 /  8      4 / 88 /  8      4 / 88 /  8
+offset 0.01     7   80 /  9 / 11     79 /  9 / 11     78 / 10 / 12
+offset 0.01    14   92 /  8 /  1     92 /  8 /  1     91 /  8 /  0
+offset 0.01    21   97 /  3 /  0     97 /  3 /  0     97 /  3 /  0
+offset 0.01    28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.03     7   40 / 33 / 27     41 / 33 / 26     41 / 32 / 27
+offset 0.03    14   55 / 18 / 27     55 / 19 / 27     55 / 19 / 26
+offset 0.03    21   77 / 18 /  5     77 / 19 /  4     76 / 19 /  5
+offset 0.03    28   84 / 15 /  1     84 / 15 /  1     83 / 16 /  1
+
+pooled, absolute, offset removed; old reading 168 h old; 2 runs a day; by days and shots
+assumption   days     4096 shots      16384 shots      65536 shots  
+right           7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate        7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps           7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+level           7   13 / 70 / 17     12 / 69 / 18     13 / 69 / 17
+level          14    8 / 78 / 15      8 / 76 / 16      7 / 76 / 17
+level          21    3 / 89 /  8      3 / 89 /  8      3 / 89 /  8
+level          28    3 / 89 /  7      3 / 89 /  7      4 / 90 /  7
+offset 0.01     7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.01    14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.01    21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.01    28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.03     7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.03    14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.03    21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.03    28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+
+typical, squared; old reading 168 h old; 2 runs a day; by days and shots
+assumption   days     4096 shots      16384 shots      65536 shots  
+right           7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate        7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps           7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+level           7   14 / 23 / 63     14 / 25 / 60     14 / 24 / 62
+level          14    4 / 25 / 71      3 / 26 / 71      4 / 24 / 72
+level          21    4 / 30 / 66      4 / 31 / 65      3 / 29 / 67
+level          28    2 / 36 / 62      3 / 36 / 61      2 / 33 / 65
+offset 0.01     7   88 /  0 / 12     88 /  0 / 12     88 /  0 / 12
+offset 0.01    14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.01    21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.01    28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.03     7   42 /  3 / 55     43 /  3 / 54     42 /  3 / 55
+offset 0.03    14   70 /  1 / 29     71 /  2 / 27     70 /  2 / 29
+offset 0.03    21   85 /  0 / 15     86 /  0 / 14     86 /  0 / 14
+offset 0.03    28   95 /  0 /  5     94 /  0 /  6     94 /  0 /  6
+
+typical, absolute; old reading 168 h old; 2 runs a day; by days and shots
+assumption   days     4096 shots      16384 shots      65536 shots  
+right           7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate        7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps           7   99 /  0 /  1     99 /  0 /  1    100 /  0 /  0
+jumps          14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+level           7   13 / 48 / 39     13 / 49 / 38     12 / 48 / 39
+level          14    5 / 74 / 22      5 / 71 / 24      4 / 71 / 25
+level          21    4 / 81 / 14      3 / 83 / 14      2 / 83 / 15
+level          28    2 / 94 /  4      2 / 94 /  4      3 / 94 /  3
+offset 0.01     7   64 /  9 / 27     62 /  9 / 29     61 /  9 / 30
+offset 0.01    14   88 /  5 /  6     87 /  6 /  7     87 /  6 /  7
+offset 0.01    21   96 /  2 /  2     95 /  3 /  3     94 /  2 /  4
+offset 0.01    28  100 /  0 /  0     99 /  0 /  1     98 /  1 /  1
+offset 0.03     7   25 / 28 / 47     25 / 28 / 47     24 / 28 / 48
+offset 0.03    14   38 / 18 / 44     39 / 18 / 43     39 / 18 / 43
+offset 0.03    21   48 / 16 / 35     48 / 17 / 35     49 / 16 / 35
+offset 0.03    28   60 / 19 / 21     61 / 18 / 22     60 / 20 / 20
+
+typical, absolute, offset removed; old reading 168 h old; 2 runs a day; by days and shots
+assumption   days     4096 shots      16384 shots      65536 shots  
+right           7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right          28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate        7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate       28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps           7   98 /  0 /  2     98 /  0 /  2     99 /  0 /  1
+jumps          14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps          28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+level           7   10 / 57 / 33      9 / 55 / 36      9 / 55 / 36
+level          14    3 / 79 / 18      3 / 79 / 18      3 / 77 / 20
+level          21    3 / 87 / 10      2 / 88 / 10      2 / 88 / 10
+level          28    1 / 97 /  2      2 / 96 /  2      1 / 98 /  2
+offset 0.01     7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.01    14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.01    21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.01    28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.03     7  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.03    14  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.03    21  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.03    28  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+
+runs a day; old reading 168 h old, 16384 shots, 21 days
+assumption   statistic, score                           1 a day            2 a day            4 a day
+right        pooled, squared                    100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right        pooled, absolute                   100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right        pooled, absolute, offset removed   100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right        typical, squared                   100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right        typical, absolute                  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+right        typical, absolute, offset removed  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate     pooled, squared                    100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate     pooled, absolute                   100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate     pooled, absolute, offset removed   100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate     typical, squared                   100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate     typical, absolute                  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+estimate     typical, absolute, offset removed  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps        pooled, squared                    100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps        pooled, absolute                   100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps        pooled, absolute, offset removed   100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps        typical, squared                   100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps        typical, absolute                  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+jumps        typical, absolute, offset removed  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+level        pooled, squared                      2 / 22 / 76      3 / 34 / 63      5 / 35 / 60
+level        pooled, absolute                     3 / 75 / 22      5 / 84 / 11      6 / 91 /  3
+level        pooled, absolute, offset removed     2 / 76 / 22      3 / 89 /  8      6 / 91 /  3
+level        typical, squared                     4 / 23 / 73      4 / 31 / 65      3 / 29 / 68
+level        typical, absolute                    4 / 67 / 29      3 / 83 / 14      4 / 87 /  9
+level        typical, absolute, offset removed    3 / 80 / 17      2 / 88 / 10      3 / 90 /  7
+offset 0.01  pooled, squared                    100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.01  pooled, absolute                    95 /  4 /  1     97 /  3 /  0     98 /  2 /  0
+offset 0.01  pooled, absolute, offset removed   100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.01  typical, squared                   100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.01  typical, absolute                   83 /  3 / 14     95 /  3 /  3     97 /  2 /  1
+offset 0.01  typical, absolute, offset removed  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.03  pooled, squared                     95 /  0 /  5     95 /  0 /  5     95 /  0 /  5
+offset 0.03  pooled, absolute                    68 / 17 / 15     77 / 19 /  4     88 / 10 /  2
+offset 0.03  pooled, absolute, offset removed   100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+offset 0.03  typical, squared                    73 /  1 / 27     86 /  0 / 14     94 /  0 /  6
+offset 0.03  typical, absolute                   33 / 15 / 52     48 / 17 / 35     63 / 16 / 21
+offset 0.03  typical, absolute, offset removed  100 /  0 /  0    100 /  0 /  0    100 /  0 /  0
+
+within small changes (under 2 standard errors of two 4096-shot estimates) and large ones (over 5);
+pooled, absolute, offset removed; old reading 168 h old, 2 runs a day, 21 days
+confirmed share, median [5%, 95%], then better / no advantage / inconclusive
+assumption   changes                              4096 shots                             16384 shots                             65536 shots
+right        small         0.51 [ 0.44,  0.56] 100 /  0 /  0       0.67 [ 0.61,  0.71] 100 /  0 /  0       0.76 [ 0.69,  0.80] 100 /  0 /  0
+right        large         0.94 [ 0.92,  0.96] 100 /  0 /  0       0.97 [ 0.95,  0.98] 100 /  0 /  0       0.98 [ 0.96,  0.99] 100 /  0 /  0
+estimate     small         0.34 [ 0.27,  0.41] 100 /  0 /  0       0.40 [ 0.34,  0.46] 100 /  0 /  0       0.42 [ 0.36,  0.48] 100 /  0 /  0
+estimate     large         0.90 [ 0.86,  0.94] 100 /  0 /  0       0.92 [ 0.88,  0.95] 100 /  0 /  0       0.93 [ 0.89,  0.95] 100 /  0 /  0
+jumps        small         0.02 [-0.06,  0.10]  13 / 87 /  0       0.02 [-0.06,  0.09]  12 / 88 /  0       0.02 [-0.04,  0.10]  15 / 85 /  0
+jumps        large         0.88 [ 0.81,  0.92] 100 /  0 /  0       0.90 [ 0.83,  0.93] 100 /  0 /  0       0.91 [ 0.84,  0.94] 100 /  0 /  0
+level        small        -0.01 [-0.09,  0.06]   2 / 98 /  0      -0.01 [-0.08,  0.05]   2 / 98 /  0      -0.01 [-0.09,  0.05]   1 / 99 /  0
+level        large        -0.03 [-0.40,  0.27]   4 / 53 / 43      -0.03 [-0.40,  0.27]   4 / 52 / 44      -0.03 [-0.40,  0.27]   4 / 52 / 45
+offset 0.01  small         0.40 [ 0.34,  0.47] 100 /  0 /  0       0.59 [ 0.53,  0.63] 100 /  0 /  0       0.72 [ 0.63,  0.76] 100 /  0 /  0
+offset 0.01  large         0.93 [ 0.89,  0.95] 100 /  0 /  0       0.96 [ 0.94,  0.97] 100 /  0 /  0       0.98 [ 0.95,  0.98] 100 /  0 /  0
+offset 0.03  small         0.32 [ 0.25,  0.39] 100 /  0 /  0       0.51 [ 0.45,  0.56] 100 /  0 /  0       0.67 [ 0.60,  0.70] 100 /  0 /  0
+offset 0.03  large         0.91 [ 0.87,  0.94] 100 /  0 /  0       0.95 [ 0.93,  0.97] 100 /  0 /  0       0.97 [ 0.95,  0.98] 100 /  0 /  0
+
+run time 2.5 minutes
+
+wrote results\hardware-sizing\hardware_sizing.json

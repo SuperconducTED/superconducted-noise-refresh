@@ -71,6 +71,21 @@ repository until now.
 | For the one burst examined, the table's `snapshot_update_time` is three days older than the events' own `calibrated_time`. This may separate backfilled failures from live ones. | `docs/implementations/2026-11-13-public-dataset-replay.md` (untested) |
 | The dataset's author is named Charles Norton by the owner's Hugging Face profile. No source states a middle initial. | `README.md` |
 
+## Readings as estimates, and scoring them against counts
+
+Added 2026-11-14. No job has been run; these come from the archive and from a simulation on it.
+
+| Lesson | Held in |
+| --- | --- |
+| Every assignment probability in the archive lies on a grid of 1/4096, so a reading is an estimate from a finite number of shots. Measured against two 4,096-shot estimates, 55% of the chain's readings that changed over 7 days moved by less than two standard errors. A distance between two models includes this noise. | `results/hardware-sizing/README.md`; `PROTOCOL.md` section 7 |
+| The grid alone does not give the shot count: counts out of 2,048 or 1,024 shots lie on the 1/4096 grid too. Round by round the new readings fit 4,096 shots in 570 of 732 rounds, 2,048 in 145 and 1,024 in 17. Check a claim about a grid one calibration round at a time. | `scripts/hardware_sizing.py` prints the rounds by grid |
+| The device's calibration pattern is not constant over the archive. Readout was renewed 4.3 times a day before 2026-10-27 and 1.1 times a day from then on, on a coarser grid, and not after 2026-11-09. Numbers pooled over the whole archive describe the earlier pattern. | `results/hardware-sizing/README.md`; `PROTOCOL.md` section 7 |
+| A minority of large changes carries most of the summed change between readings (mean 0.0089 against a median of 0.0034 at 7 days). A squared score is decided by them and could not establish "no advantage" in simulation. | `noise_refresh.hardware` module docstring; `results/hardware-sizing/README.md` |
+| A constant offset between a measurement and the calibration hides the change from an absolute-error score once the offset exceeds the change. An offset estimated from the midpoint of the two readings favours neither and can be removed. | `hardware.symmetric_offset`; `test_a_constant_offset_hides_the_change_from_the_absolute_loss_only` |
+| A reading's age is counted from its own calibration date. When a file is archived the chain's readout is a median of 3.8 hours old, and over 18.6 hours in 5% of 120 files. | `docs/hardware-preregistration.md` section 3 |
+| A percentile bootstrap over 7 days is too narrow: a device with no advantage was called better in 9% of simulated series, against 3% at 14 days. | The 14-day minimum in `docs/hardware-preregistration.md` section 7 |
+| The number of shots did not change the simulated verdict between 4,096 and 65,536. It changes how well small changes are resolved. | `results/hardware-sizing/README.md` |
+
 ## Reproducibility and tooling
 
 | Lesson | Held in |
@@ -99,7 +114,9 @@ repository until now.
 - The bound and the sweep circuits were scored on the data they were developed on.
 - No treatment of the flagged failed calibrations has been tested, including the
   `snapshot_update_time` lead.
-- Nothing has been run on hardware.
+- Nothing has been run on hardware. The sizing of the hardware test assumes six behaviours of
+  the device and none is known to hold. What the service charges for a job, and whether it
+  answers a request for a device's properties at a past date, have not been tried.
 - `docs/related-work-draft.md` rests on one reading per paper for most rows; its header says which
   sources have been checked. One repository named in an earlier novelty check has not been read.
 - The literature search reports that Kourousias et al. (arXiv:2610.09931) argue that checks on one
